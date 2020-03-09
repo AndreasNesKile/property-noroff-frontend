@@ -24,11 +24,25 @@ namespace backend
 
         public IConfiguration Configuration { get; }
 
+        private readonly string _corsOrigin = "allowSpecificOrigin";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_corsOrigin, builder =>
+                {
+                    /*
+                     * Replace line below with 
+                     * "builder.WithOrigins('https://example.com', 'https://example2.com')"
+                     * if only specific origins are to be allowed
+                     */
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +56,8 @@ namespace backend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_corsOrigin);
 
             app.UseAuthorization();
 
