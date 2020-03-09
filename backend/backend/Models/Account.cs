@@ -12,15 +12,15 @@ namespace backend.Models
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName= "varchar(30)")]
+        [Column(TypeName= "nvarchar(30)")]
         public string Name { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar(40")]
+        [Column(TypeName = "nvarchar(40)")]
         public string Surname { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "nvarchar(50)")]
         public string Email { get; set; }
 
         [Required]

@@ -5,6 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+/*
+ *  Cascading is active. Deleting property status/type etc., will result in deleting all the properties attached to it.
+ */
+
 namespace backend.Models
 {
     public class Property
