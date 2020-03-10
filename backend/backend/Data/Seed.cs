@@ -29,7 +29,7 @@ namespace backend.Data
         {
             if (!context.PropertyStatuses.Any())
             {
-                var statusData = File.ReadAllText("../MockData/PropertyStatusSeedData.json");
+                var statusData = File.ReadAllText("./MockData/PropertyStatusSeedData.json");
                 var statusList = JsonConvert.DeserializeObject<List<PropertyStatus>>(statusData);
                 foreach (var status in statusList)
                 {
@@ -43,7 +43,7 @@ namespace backend.Data
         {
             if (!context.PropertyTypes.Any())
             {
-                var typeData = File.ReadAllText("../MockData/PropertyTypeSeedData.json");
+                var typeData = File.ReadAllText("./MockData/PropertyTypeSeedData.json");
                 var types = JsonConvert.DeserializeObject<List<PropertyType>>(typeData);
                 foreach (var type in types)
                 {
@@ -57,7 +57,7 @@ namespace backend.Data
         {
             if (!context.Properties.Any())
             {
-                var propertyData = File.ReadAllText("../MockData/PropertySeedData.json");
+                var propertyData = File.ReadAllText("./MockData/PropertySeedData.json");
                 var properties = JsonConvert.DeserializeObject<List<Property>>(propertyData);
                 foreach (var property in properties)
                 {
@@ -71,7 +71,7 @@ namespace backend.Data
         {
             if (!context.PropertyImages.Any())
             {
-                var propertyImageData = File.ReadAllText("../MockData/PropertyImageSeedData.json");
+                var propertyImageData = File.ReadAllText("./MockData/PropertyImageSeedData.json");
                 var propertyImages = JsonConvert.DeserializeObject<List<PropertyImage>>(propertyImageData);
                 foreach (var propertyImage in propertyImages)
                 {
@@ -85,7 +85,7 @@ namespace backend.Data
         {
             if (!context.Renovations.Any())
             {
-                var renovationData = File.ReadAllText("../MockData/RenovationSeedData.json");
+                var renovationData = File.ReadAllText("./MockData/RenovationSeedData.json");
                 var renovations = JsonConvert.DeserializeObject<List<Renovation>>(renovationData);
                 foreach (var renovation in renovations)
                 {
@@ -99,7 +99,7 @@ namespace backend.Data
         {
             if (!context.Valuations.Any())
             {
-                var valuationData = File.ReadAllText("../MockData/ValuationSeedData.json");
+                var valuationData = File.ReadAllText("./MockData/ValuationSeedData.json");
                 var valuations = JsonConvert.DeserializeObject<List<Valuation>>(valuationData);
                 foreach (var valuation in valuations)
                 {
@@ -113,7 +113,7 @@ namespace backend.Data
         {
             if (!context.OwnerTypes.Any())
             {
-                var ownerTypeData = File.ReadAllText("../MockData/OwnerTypeSeedData.json");
+                var ownerTypeData = File.ReadAllText("./MockData/OwnerTypeSeedData.json");
                 var ownerTypes = JsonConvert.DeserializeObject<List<OwnerType>>(ownerTypeData);
                 foreach (var ownerType in ownerTypes)
                 {
@@ -127,7 +127,7 @@ namespace backend.Data
         {
             if (!context.Owners.Any())
             {
-                var ownerData = File.ReadAllText("../MockData/OwnerSeedData.json");
+                var ownerData = File.ReadAllText("./MockData/OwnerSeedData.json");
                 var owners = JsonConvert.DeserializeObject<List<Owner>>(ownerData);
                 foreach (var owner in owners)
                 {
@@ -141,7 +141,7 @@ namespace backend.Data
         {
             if (!context.OwnershipLogs.Any())
             {
-                var ownershipLogData = File.ReadAllText("../MockData/OwnershipLogSeedData.json");
+                var ownershipLogData = File.ReadAllText("./MockData/OwnershipLogSeedData.json");
                 var ownershipLogs = JsonConvert.DeserializeObject<List<OwnershipLog>>(ownershipLogData);
                 foreach (var ownershipLog in ownershipLogs)
                 {
@@ -155,7 +155,7 @@ namespace backend.Data
         {
             if (!context.AccountTypes.Any())
             {
-                var accountTypeData = File.ReadAllText("../MockData/AccountTypeSeedData.json");
+                var accountTypeData = File.ReadAllText("./MockData/AccountTypeSeedData.json");
                 var accountTypes = JsonConvert.DeserializeObject<List<AccountType>>(accountTypeData);
                 foreach (var accountType in accountTypes)
                 {
@@ -169,7 +169,7 @@ namespace backend.Data
         {
             if (!context.Accounts.Any())
             {
-                var accountData = File.ReadAllText("../MockData/AccountSeedData.json");
+                var accountData = File.ReadAllText("./MockData/AccountSeedData.json");
                 var accounts = JsonConvert.DeserializeObject<List<Account>>(accountData);
                 foreach (var account in accounts)
                 {

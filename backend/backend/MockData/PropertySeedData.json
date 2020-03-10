@@ -7,7 +7,7 @@
     "Municipality": "Oslo",
     "City": "Oslo",
     "Country": "Norway",
-    "Zip": "0360",
+    "ZipCode": "0360",
     "CreatedAt": "2005-07-05",
     "PropertyStatusId": "2",
     "PropertyTypeId": "1"
@@ -20,7 +20,7 @@
     "Municipality": "Elverum",
     "City": "Elverum",
     "Country": "Norway",
-    "Zip": "2401",
+    "ZipCode": "2401",
     "CreatedAt": "2010-01-18",
     "PropertyStatusId": "1",
     "PropertyTypeId": "2"
@@ -33,7 +33,7 @@
     "Municipality": "Drammen",
     "City": "Drammen",
     "Country": "Norway",
-    "Zip": "1203",
+    "ZipCode": "1203",
     "CreatedAt": "1983-11-20",
     "PropertyStatusId": "1",
     "PropertyTypeId": "4"
@@ -46,7 +46,7 @@
     "Municipality": "Cangas de Onis",
     "City": "Cangas de Onís",
     "Country": "Spain",
-    "Zip": "9348",
+    "ZipCode": "9348",
     "CreatedAt": "2016-04-30",
     "PropertyStatusId": "2",
     "PropertyTypeId": "3"
@@ -59,7 +59,7 @@
     "Municipality": "Bergen",
     "City": "Bergen",
     "Country": "Norway",
-    "Zip": "1018",
+    "ZipCode": "1018",
     "CreatedAt": "1944-09-17",
     "PropertyStatusId": "3",
     "PropertyTypeId": "3"
@@ -72,7 +72,7 @@
     "Municipality": "Trondheim",
     "City": "Trondheim",
     "Country": "Norway",
-    "Zip": "7001",
+    "ZipCode": "7001",
     "CreatedAt": "1814-01-01",
     "PropertyStatusId": "5",
     "PropertyTypeId": "1"
@@ -85,7 +85,7 @@
     "Municipality": "Los Angeles?",
     "City": "Los Angeles",
     "Country": "U.S.A",
-    "Zip": "20849",
+    "ZipCode": "20849",
     "CreatedAt": "2020-03-10",
     "PropertyStatusId": "4",
     "PropertyTypeId": "3"
