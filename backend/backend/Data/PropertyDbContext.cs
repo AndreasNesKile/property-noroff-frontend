@@ -22,7 +22,7 @@ namespace backend.Data
 
         public DbSet<Property> Properties { get; set; }
 
-        public DbSet<PropertyImage> ProperyImages { get; set; }
+        public DbSet<PropertyImage> PropertyImages { get; set; }
 
         public DbSet<PropertyStatus> PropertyStatuses { get; set; }
 
