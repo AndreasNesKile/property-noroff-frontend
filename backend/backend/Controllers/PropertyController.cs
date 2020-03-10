@@ -44,7 +44,7 @@ namespace backend.Controllers
             var property = await _repo.GetProperty(id);
             if(property == null)
             {
-                return NotFound(property)
+                return NotFound(property);
             } else
             {
                 return Ok(property);
