@@ -1,7 +1,5 @@
 ﻿using backend.DTO;
-using backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,9 +17,9 @@ namespace backend.Data
 
         public async Task<IEnumerable<PropertyDTO>> GetProperties()
         {
-           var result = await _context.Properties.ToListAsync();
+            var result = await _context.Properties.ToListAsync();
             List<PropertyDTO> properties = new List<PropertyDTO>();
-            foreach(var property in result)
+            foreach (var property in result)
             {
                 PropertyDTO prop = new PropertyDTO
                 {
@@ -61,7 +59,7 @@ namespace backend.Data
                 PropertyStatusId = result.PropertyStatusId,
                 PropertyTypeId = result.PropertyTypeId
             };
-        return fetchedProperty;
+            return fetchedProperty;
         }
     }
 }

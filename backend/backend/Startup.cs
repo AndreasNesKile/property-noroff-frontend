@@ -32,6 +32,7 @@ namespace backend
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddScoped<IPropertyRepository, PropertyRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsOrigin, builder =>
