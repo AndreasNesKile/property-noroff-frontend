@@ -1,4 +1,4 @@
-﻿using backend.Models;
+﻿using backend.DTO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,7 +6,7 @@ namespace backend.Data
 {
     public interface IPropertyRepository
     {
-        Task<IEnumerable<Property>> GetProperties();
-        Task<IEnumerable<Property>> GetProperty(int id);
+        Task<IEnumerable<PropertyDTO>> GetProperties();
+        Task<PropertyDTO> GetProperty(int id);
     }
 }
