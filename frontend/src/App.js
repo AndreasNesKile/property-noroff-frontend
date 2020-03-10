@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Property from "./components/Property/Property"
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
 function App() {
@@ -8,10 +8,10 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={} />
-          <Route path="/Properties" component={} />
+          <Route exact path="/" component={Property} />
+         {/* <Route path="/Properties" component={} />
           <Route path="/Property/:id" component={} />
-          <Route path="/Profile" component={} />
+          <Route path="/Profile" component={} /> */}
         </Switch>
       </div>
     </Router>
