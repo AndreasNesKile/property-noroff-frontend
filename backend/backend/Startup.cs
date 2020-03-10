@@ -53,8 +53,8 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            //TODO: Enable https in production
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
