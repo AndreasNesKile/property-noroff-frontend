@@ -8,10 +8,15 @@ namespace backend.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<Property, PropertyToListDTO>();
+            CreateMap<PropertyImage, PropertyImageDTO>();
+            CreateMap<Property, PropertyToListDTO>()
+                .ForMember(
+                    p => p.PropertyImages, 
+                    opt => opt.MapFrom(src => src.PropertyImages)
+                );
             CreateMap<Account, AccountDTO>()
                 .ForMember(
-                t => t.AccountType, 
+                t => t.AccountType,
                 opt => opt.MapFrom(src => src.AccountType.Name));
         }
     }
