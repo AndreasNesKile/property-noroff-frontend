@@ -31,6 +31,7 @@ namespace backend
         {
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddScoped<IPropertyRepository, PropertyRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsOrigin, builder =>
@@ -52,8 +53,8 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            //TODO: Enable https in production
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

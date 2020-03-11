@@ -1,0 +1,93 @@
+[
+  {
+    "Name": "Large apartment complex for sale",
+    "Value": "4000000",
+    "Line_1": "Fagerborggaten 16",
+    "Line_2": "",
+    "Municipality": "Oslo",
+    "City": "Oslo",
+    "Country": "Norway",
+    "ZipCode": "0360",
+    "CreatedAt": "2005-07-05",
+    "PropertyStatusId": "2",
+    "PropertyTypeId": "1"
+  },
+  {
+    "Name": "Rare oppurtunity! Small apartment in Elverum up for grabs",
+    "Value": "2000000",
+    "Line_1": "Amalie Skrams veg 18",
+    "Line_2": "Leilighet 302",
+    "Municipality": "Elverum",
+    "City": "Elverum",
+    "Country": "Norway",
+    "ZipCode": "2401",
+    "CreatedAt": "2010-01-18",
+    "PropertyStatusId": "1",
+    "PropertyTypeId": "2"
+  },
+  {
+    "Name": "Detached house in the heart of Drammen",
+    "Value": "3500000",
+    "Line_1": "Bent Oves gate 6",
+    "Line_2": "",
+    "Municipality": "Drammen",
+    "City": "Drammen",
+    "Country": "Norway",
+    "ZipCode": "1203",
+    "CreatedAt": "1983-11-20",
+    "PropertyStatusId": "1",
+    "PropertyTypeId": "4"
+  },
+  {
+    "Name": "Large summer house located in spain for sale ",
+    "Value": "6750000",
+    "Line_1": "Terchio street 19",
+    "Line_2": "",
+    "Municipality": "Cangas de Onis",
+    "City": "Cangas de Onís",
+    "Country": "Spain",
+    "ZipCode": "9348",
+    "CreatedAt": "2016-04-30",
+    "PropertyStatusId": "2",
+    "PropertyTypeId": "3"
+  },
+  {
+    "Name": "Large house currently under renovation",
+    "Value": "2750005",
+    "Line_1": "Nes Kiles gate 1",
+    "Line_2": "",
+    "Municipality": "Bergen",
+    "City": "Bergen",
+    "Country": "Norway",
+    "ZipCode": "1018",
+    "CreatedAt": "1944-09-17",
+    "PropertyStatusId": "3",
+    "PropertyTypeId": "3"
+  },
+  {
+    "Name": "A historical",
+    "Value": "4457000",
+    "Line_1": "Morgan Antonsen veg 27",
+    "Line_2": "",
+    "Municipality": "Trondheim",
+    "City": "Trondheim",
+    "Country": "Norway",
+    "ZipCode": "7001",
+    "CreatedAt": "1814-01-01",
+    "PropertyStatusId": "5",
+    "PropertyTypeId": "1"
+  },
+  {
+    "Name": "Summer cabin in the US",
+    "Value": "8320000",
+    "Line_1": "Freedom street 1776",
+    "Line_2": "",
+    "Municipality": "Los Angeles?",
+    "City": "Los Angeles",
+    "Country": "U.S.A",
+    "ZipCode": "20849",
+    "CreatedAt": "2020-03-10",
+    "PropertyStatusId": "4",
+    "PropertyTypeId": "3"
+  }
+]

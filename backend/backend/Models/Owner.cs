@@ -22,7 +22,7 @@ namespace backend.Models
         [Column(TypeName = "nvarchar(20)")]
         public string Phone { get; set; }
         [Required]
-        [Column(TypeName = "nvarchar(20)")]
+        [Column(TypeName = "nvarchar(40)")]
         public string Email { get; set; }
 
         [Required]
