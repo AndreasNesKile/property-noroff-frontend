@@ -34,8 +34,8 @@ export default class GuestDetails extends Component {
 	render() {
 		console.log(this.props.property);
 		return (
-			<section className="guest-details">
-				<h2 className="mt-5">{this.props.property[0].name ? this.props.property[0].name : ''}</h2>
+			<section className="guest-details text-center">
+				<h2 className="mt-5">{this.props.property.name ? this.props.property.name : ''}</h2>
 				<Container className="mt-5">
 					<Row>
 						<Col>
@@ -58,13 +58,11 @@ export default class GuestDetails extends Component {
 							<Row className="d-flex p-3 justify-content-between">
 								<p>
 									<span>Type: </span>
-									{this.props.property[0].propertyType
-										? this.props.property[0].propertyType
-										: 'Apartment'}
+									{this.props.property.propertyType ? this.props.property.propertyType : 'Apartment'}
 								</p>
 								<p>
 									<span>Adress: </span>
-									{this.props.property[0].line_1 ? this.props.property[0].line_1 : ''}
+									{this.props.property.line_1 ? this.props.property.line_1 : ''}
 								</p>
 							</Row>
 							<Row className="border border-aqua d-flex justify-content-around">
