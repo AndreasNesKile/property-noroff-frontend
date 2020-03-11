@@ -1,6 +1,6 @@
-﻿using backend.Models;
+﻿using backend.DTO;
+using backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,12 +18,16 @@ namespace backend.Data
 
         public async Task<IEnumerable<Property>> GetProperties()
         {
-            return await _context.Properties.ToListAsync();
+            var result = await _context.Properties.ToListAsync();
+
+            return result;
         }
 
-        public async Task<IEnumerable<Property>> GetProperty(int id)
+        public async Task<Property> GetProperty(int propertyId)
         {
-            return await _context.Properties.Where(property => property.Id == id).ToListAsync();
+            var result = await _context.Properties.Where(property => property.Id == propertyId).FirstOrDefaultAsync();
+
+            return result;
         }
     }
 }

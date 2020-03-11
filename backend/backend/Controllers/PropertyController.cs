@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using backend.Data;
+using backend.DTO;
 using backend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +15,12 @@ namespace backend.Controllers
     public class PropertyController : ControllerBase
     {
         private readonly IPropertyRepository _repo;
+        private readonly IMapper _mapper;
 
-        public PropertyController(IPropertyRepository repo)
+        public PropertyController(IPropertyRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -31,7 +35,8 @@ namespace backend.Controllers
             }
             else
             {
-                return Ok(properties);
+                var propertiesToReturn = _mapper.Map<IEnumerable<PropertyToListDTO>>(properties);
+                return Ok(propertiesToReturn);
             }
         }
 
@@ -47,7 +52,8 @@ namespace backend.Controllers
                 return NotFound(property);
             } else
             {
-                return Ok(property);
+                var propertyToReturn = _mapper.Map<PropertyToListDTO>(property);
+                return Ok(propertyToReturn);
             }
         }
 
