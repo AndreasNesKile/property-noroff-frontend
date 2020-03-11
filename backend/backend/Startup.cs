@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using backend.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -43,7 +44,9 @@ namespace backend
             });
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddAutoMapper(typeof(PropertyRepository).Assembly, typeof(AccountRepository).Assembly);
             services.AddScoped<IPropertyRepository, PropertyRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy(_corsOrigin, builder =>
