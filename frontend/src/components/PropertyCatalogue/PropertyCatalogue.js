@@ -12,9 +12,9 @@ class PropertyCatalogue extends React.Component {
   }
 
   render() {
-    const propertycards = this.state.properties.map((property, index) => {
+    const propertycards = this.state.properties.map((data, index) => {
       return (
-        <Property key={index} property={property} />
+        <Property key={index} data={data} />
       );
     });
 

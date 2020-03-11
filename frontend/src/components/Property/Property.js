@@ -3,9 +3,10 @@ import styles from "./Property.module.css";
 import { Link } from "react-router-dom"
 
 function Property(passed) {
+    console.log(passed.data)
     return (
         <div className={styles.CardContainer}>
-            <p>{passed.property}</p>
+            <p>test</p>
         </div>
     );
 };
