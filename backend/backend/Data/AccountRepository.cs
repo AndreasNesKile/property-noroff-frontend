@@ -16,7 +16,8 @@ namespace backend.Data
 
         public async Task<Account> GetAccount(int accountId)
         {
-            var result = await _context.Accounts.Where(account => account.Id == accountId).FirstOrDefaultAsync();
+            var result = await _context.Accounts.Where(account => account.Id == accountId).Include(t => t.AccountType).FirstOrDefaultAsync();
+
             if(result != null)
             {
                 return result;

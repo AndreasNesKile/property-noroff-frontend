@@ -13,6 +13,10 @@ namespace backend.Models
         [Required]
         [Column(TypeName = "nvarchar(200)")]
         public string Url { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
+        public string Caption { get; set; }
+
         [Required]
         public int PropertyId { get; set; }
         [Required]
