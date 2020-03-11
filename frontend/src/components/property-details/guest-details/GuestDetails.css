@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+.guest-details {
+	font-family: 'Nunito', sans-serif;
+}
+h2 {
+	font-weight: 700;
+}
+.leaflet-map {
+	width: 80%;
+	height: 100%;
+}
+.leaflet-col {
+	min-height: 30vh;
+}
