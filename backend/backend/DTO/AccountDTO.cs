@@ -14,7 +14,7 @@ namespace backend.DTO
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Boolean Active { get; set; }
-        public AccountType AccountType { get; set; }
+        public string AccountType { get; set; }
         public int AccountTypeId { get; set; }
     }
 }
