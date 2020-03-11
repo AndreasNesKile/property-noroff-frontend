@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
+using AutoMapper;
 using backend.Data;
+using backend.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,12 @@ namespace backend.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountRepository _repo;
+        private readonly IMapper _mapper;
 
-        public AccountController(IAccountRepository repo)
+        public AccountController(IAccountRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet("{id}")]
@@ -23,7 +27,11 @@ namespace backend.Controllers
         {
             var account = await _repo.GetAccount(id);
             if (account == null) return NotFound("Account not found");
-            else return Ok(account);
+            else
+            {
+                var accountToReturn = _mapper.Map<AccountDTO>(account);
+                return Ok(accountToReturn);
+            }
         }
 
         /*[HttpPut("{id}")]

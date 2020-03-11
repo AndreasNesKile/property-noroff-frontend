@@ -1,4 +1,5 @@
 ﻿using backend.DTO;
+using backend.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,23 +14,12 @@ namespace backend.Data
             _context = context;
         }
 
-        public async Task<AccountDTO> GetAccount(int accountId)
+        public async Task<Account> GetAccount(int accountId)
         {
-            var result = await _context.Accounts.Where(account => account.Id == accountId).SingleAsync();
+            var result = await _context.Accounts.Where(account => account.Id == accountId).FirstOrDefaultAsync();
             if(result != null)
             {
-                AccountDTO account = new AccountDTO
-                {
-                    Id = result.Id,
-                    Name = result.Name,
-                    Surname = result.Surname,
-                    Email = result.Email,
-                    DateOfBirth = result.DateOfBirth,
-                    Active = result.Active,
-                    AccountTypeId = result.AccountTypeId
-                };
-
-                return account;
+                return result;
             } else
             {
                 return null;

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace backend.DTO
 {
-    public class PropertyDTO
+    public class PropertyToListDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
