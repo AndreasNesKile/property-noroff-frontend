@@ -37,19 +37,13 @@ namespace backend.Models
         [Column(TypeName = "nvarchar(8)")]
         public string ZipCode { get; set; }
         public DateTime CreatedAt { get; set; }
-
         public List<PropertyImage> PropertyImages { get; set; }
         public List<Renovation> Renovations { get; set; }
         public List<Valuation> Valuations { get; set; }
-
         public List<OwnershipLog> OwnershipLogs { get; set; }
-
-        
         public PropertyStatus PropertyStatus { get; set; }
         public int PropertyStatusId { get; set; }
         public PropertyType PropertyType { get; set; }
         public int PropertyTypeId { get; set; }
-
-
     }
-}
+} 

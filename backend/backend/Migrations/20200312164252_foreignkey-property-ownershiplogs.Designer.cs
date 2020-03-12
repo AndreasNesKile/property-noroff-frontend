@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(PropertyDbContext))]
-    partial class PropertyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200312164252_foreignkey-property-ownershiplogs")]
+    partial class foreignkeypropertyownershiplogs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,6 +149,9 @@ namespace backend.Migrations
                     b.Property<int>("OwnerId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OwnerId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("PropertyId")
                         .HasColumnType("int");
 
@@ -154,7 +159,7 @@ namespace backend.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.HasIndex("PropertyId");
+                    b.HasIndex("OwnerId1");
 
                     b.ToTable("OwnershipLogs");
                 });
@@ -342,15 +347,15 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Models.OwnershipLog", b =>
                 {
-                    b.HasOne("backend.Models.Owner", "Owner")
+                    b.HasOne("backend.Models.Property", "Property")
                         .WithMany("OwnershipLogs")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("backend.Models.Property", "Property")
+                    b.HasOne("backend.Models.Owner", "Owner")
                         .WithMany("OwnershipLogs")
-                        .HasForeignKey("PropertyId")
+                        .HasForeignKey("OwnerId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
