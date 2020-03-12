@@ -34,7 +34,10 @@ namespace backend.Models
         [Required]
         public DateTime CreatedAt { get; set; }
 
-        public List<OwnershipLog> OwnershipLogs { get; set; }
+        public OwnerType OwnerType { get; set; }
 
+        public int OwnerTypeId { get; set; }
+
+        public List<OwnershipLog> OwnershipLogs { get; set; }
     }
 }

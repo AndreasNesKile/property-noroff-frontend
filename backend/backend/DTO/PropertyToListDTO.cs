@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace backend.DTO
 {
@@ -17,6 +15,10 @@ namespace backend.DTO
         public string Country { get; set; }
         public string ZipCode { get; set; }
         public DateTime CreatedAt { get; set; }
+        public List<PropertyImageDTO> PropertyImages { get; set; }
+        public List<RenovationDTO> Renovations { get; set; }
+        public List<ValuationDTO> Valuations { get; set; }
+        public List<OwnershipLogDTO> OwnershipLogs { get; set; }
         public int PropertyStatusId { get; set; }
         public int PropertyTypeId { get; set; }
 

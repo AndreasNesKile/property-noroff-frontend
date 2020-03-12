@@ -18,14 +18,25 @@ namespace backend.Data
 
         public async Task<IEnumerable<Property>> GetProperties()
         {
-            var result = await _context.Properties.ToListAsync();
 
-            return result;
-        }
+            var properties = await _context.Properties
+                .Include(p => p.PropertyImages)
+                .Include(r => r.Renovations)
+                .Include(v => v.Valuations)
+                .Include(o => o.OwnershipLogs)
+                .ToListAsync();
+
+            return properties;
+        } 
 
         public async Task<Property> GetProperty(int propertyId)
         {
-            var result = await _context.Properties.Where(property => property.Id == propertyId).FirstOrDefaultAsync();
+            var result = await _context.Properties.Where(property => property.Id == propertyId)
+                .Include(p => p.PropertyImages)
+                .Include(r => r.Renovations)
+                .Include(v => v.Valuations)
+                .Include(o => o.OwnershipLogs)
+                .FirstOrDefaultAsync();
 
             return result;
         }

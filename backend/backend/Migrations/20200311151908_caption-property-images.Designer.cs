@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(PropertyDbContext))]
-    partial class PropertyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200311151908_caption-property-images")]
+    partial class captionpropertyimages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,9 +96,6 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("OwnerTypeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
@@ -106,8 +105,6 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OwnerTypeId");
 
                     b.ToTable("Owners");
                 });
@@ -327,15 +324,6 @@ namespace backend.Migrations
                     b.HasOne("backend.Models.AccountType", "AccountType")
                         .WithMany()
                         .HasForeignKey("AccountTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("backend.Models.Owner", b =>
-                {
-                    b.HasOne("backend.Models.OwnerType", "OwnerType")
-                        .WithMany()
-                        .HasForeignKey("OwnerTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

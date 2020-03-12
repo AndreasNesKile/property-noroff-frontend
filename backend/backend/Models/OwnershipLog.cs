@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace backend.Models
 {
@@ -20,11 +19,13 @@ namespace backend.Models
         [Required]
         public Property Property { get; set; }
 
+        [ForeignKey("Property")]
         [Required]
         public int PropertyId { get; set; }
         [Required]
         public Owner Owner { get; set; }
 
+        [ForeignKey("Owner")]
         [Required]
         public int OwnerId { get; set; }
 
