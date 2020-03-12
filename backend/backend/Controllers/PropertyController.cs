@@ -52,7 +52,9 @@ namespace backend.Controllers
                 return NotFound(property);
             } else
             {
-                var propertyToReturn = _mapper.Map<PropertyToListDTO>(property);
+                //var propertyToReturn = _mapper.Map<PropertyDetailsToGuestDTO>(property);
+                var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
+                //var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
                 return Ok(propertyToReturn);
             }
         }

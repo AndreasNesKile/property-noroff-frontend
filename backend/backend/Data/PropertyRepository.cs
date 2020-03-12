@@ -21,9 +21,8 @@ namespace backend.Data
 
             var properties = await _context.Properties
                 .Include(p => p.PropertyImages)
-                .Include(r => r.Renovations)
-                .Include(v => v.Valuations)
-                .Include(o => o.OwnershipLogs)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
                 .ToListAsync();
 
             return properties;
@@ -36,6 +35,8 @@ namespace backend.Data
                 .Include(r => r.Renovations)
                 .Include(v => v.Valuations)
                 .Include(o => o.OwnershipLogs)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
                 .FirstOrDefaultAsync();
 
             return result;

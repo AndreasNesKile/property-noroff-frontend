@@ -6,6 +6,12 @@
     "PropertyId": 1
   },
   {
+    "Description": "Added central heating.",
+    "DateFrom": "1999-01-01",
+    "DateTo": "1999-02-26",
+    "PropertyId": 1
+  },
+  {
     "Description": "New bathroom and kitchen",
     "DateFrom": "2013-02-02",
     "DateTo": "2013-05-07",

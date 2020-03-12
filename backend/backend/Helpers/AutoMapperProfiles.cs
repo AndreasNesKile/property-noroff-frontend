@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using backend.DTO;
 using backend.Models;
+using System.Linq;
 
 namespace backend.Helpers
 {
@@ -17,6 +18,54 @@ namespace backend.Helpers
                     opt => opt.MapFrom(src => src.Owner.Name)
                 );
             CreateMap<Property, PropertyToListDTO>()
+                .ForMember(
+                    p => p.PropertyImage,
+                    opt => opt.MapFrom(src => src.PropertyImages.FirstOrDefault()))
+                .ForMember(
+                    p => p.PropertyStatus,
+                    opt => opt.MapFrom(src => src.PropertyStatus.Name)
+                )
+                .ForMember(
+                    p => p.PropertyType,
+                    opt => opt.MapFrom(src => src.PropertyType.Name)
+                );
+            CreateMap<Property, PropertyDetailsToGuestDTO>()
+                .ForMember(
+                    p => p.PropertyImages,
+                    opt => opt.MapFrom(src => src.PropertyImages))
+                .ForMember(
+                    p => p.PropertyStatus,
+                    opt => opt.MapFrom(src => src.PropertyStatus.Name)
+                )
+                .ForMember(
+                    p => p.PropertyType,
+                    opt => opt.MapFrom(src => src.PropertyType.Name)
+                );
+            CreateMap<Property, PropertyDetailsToBuyerDTO>()
+                .ForMember(
+                    p => p.PropertyImages,
+                    opt => opt.MapFrom(src => src.PropertyImages))
+                .ForMember(
+                    p => p.PropertyStatus,
+                    opt => opt.MapFrom(src => src.PropertyStatus.Name)
+                )
+                .ForMember(
+                    p => p.PropertyType,
+                    opt => opt.MapFrom(src => src.PropertyType.Name)
+                )
+                .ForMember(
+                    p => p.LastRenovated, 
+                    opt => {
+                        opt.MapFrom(src => 
+                        /*
+                         * Checks if the property has any renovation.
+                         * If true, it maps the LastRenovated date to the date of the last renovation
+                         * If false, it maps the date to the date the property was built
+                         */
+                        src.Renovations.Any() ? 
+                        src.Renovations.Aggregate((R1, R2) => R1.DateTo > R2.DateTo ? R1 : R2).DateTo : src.CreatedAt);
+                });
+            CreateMap<Property, PropertyDetailsToAgentDTO>()
                .ForMember(
                     p => p.PropertyImages,
                     opt => opt.MapFrom(src => src.PropertyImages)
