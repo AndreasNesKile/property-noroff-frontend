@@ -12,3 +12,6 @@ h2 {
 .leaflet-col {
 	min-height: 30vh;
 }
+.guest-info-container {
+	height: 30vh;
+}

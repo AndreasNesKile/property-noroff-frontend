@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import './GuestDetails.css';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 let QRCode = require('qrcode');
@@ -32,9 +32,8 @@ export default class GuestDetails extends Component {
 		});
 	}
 	render() {
-		console.log(this.props.property);
 		return (
-			<section className="guest-details text-center">
+			<section className="guest-details text-center mb-0">
 				<h2 className="mt-5">{this.props.property.name ? this.props.property.name : ''}</h2>
 				<Container className="mt-5">
 					<Row>
@@ -52,7 +51,7 @@ export default class GuestDetails extends Component {
 						</Col>
 					</Row>
 				</Container>
-				<Container className="container-fluid mt-5">
+				<Container className="container-fluid mt-5 guest-info-container">
 					<Row>
 						<Col xs={12} sm={6} className="border border-aqua">
 							<Row className="d-flex p-3 justify-content-between">
