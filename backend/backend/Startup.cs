@@ -9,13 +9,16 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace backend
 {
@@ -33,14 +36,26 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
-                options.Authority = "https://propertyproject.eu.auth0.com/";
-                options.Audience = "https://api.property.com";
+                options.Authority = Configuration.GetSection("AuthApi").GetSection("Domain").Value;
+                //options.Audience = Configuration.GetSection("AuthApi").GetSection("Identifier").Value;
+                options.Audience = Configuration.GetSection("AuthApi").GetSection("TestIdentifier").Value;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = "Roles",
+                    RoleClaimType = "https://property.com/roles"
+                };
+            });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireBuyerRole", policy => policy.RequireClaim("https://property.com/roles", "Buyer"));
+                options.AddPolicy("RequireAgentRole", policy => policy.RequireClaim("https://property.com/roles", "Agent"));
             });
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
