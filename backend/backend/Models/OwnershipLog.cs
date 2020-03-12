@@ -11,7 +11,7 @@ namespace backend.Models
 
         [Required]
         public DateTime DateAcquired { get; set; }
-        public DateTime DateSold { get; set; }
+        public DateTime? DateSold { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
@@ -53,8 +54,15 @@ namespace backend.Controllers
             } else
             {
                 //var propertyToReturn = _mapper.Map<PropertyDetailsToGuestDTO>(property);
-                var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
-                //var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
+                //var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
+                var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
+                foreach (var item in propertyToReturn.OwnershipLogs)
+                {
+                    if (item.DateSold == DateTime.MinValue)
+                    {
+                        propertyToReturn.CurrentOwner = item.Owner;
+                    }
+                }
                 return Ok(propertyToReturn);
             }
         }

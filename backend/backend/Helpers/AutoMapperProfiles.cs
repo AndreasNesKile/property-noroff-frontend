@@ -12,10 +12,12 @@ namespace backend.Helpers
             CreateMap<PropertyImage, PropertyImageDTO>();
             CreateMap<Renovation, RenovationDTO>();
             CreateMap<Valuation, ValuationDTO>();
+            CreateMap<Owner, OwnerDTO>();
+            CreateMap<Owner, OwnerToPropertyDetailDTO>();
             CreateMap<OwnershipLog, OwnershipLogDTO>()
                 .ForMember(
                     ow => ow.Owner,
-                    opt => opt.MapFrom(src => src.Owner.Name)
+                    opt => opt.MapFrom(src => src.Owner)
                 );
             CreateMap<Property, PropertyToListDTO>()
                 .ForMember(
@@ -65,18 +67,25 @@ namespace backend.Helpers
                         src.Renovations.Any() ? 
                         src.Renovations.Aggregate((R1, R2) => R1.DateTo > R2.DateTo ? R1 : R2).DateTo : src.CreatedAt);
                 });
+            CreateMap<OwnerType, OwnerTypeDTO>();
             CreateMap<Property, PropertyDetailsToAgentDTO>()
                .ForMember(
                     p => p.PropertyImages,
                     opt => opt.MapFrom(src => src.PropertyImages)
+                )
+               .ForMember(
+                    p => p.PropertyStatus,
+                    opt => opt.MapFrom(src => src.PropertyStatus.Name)
+                )
+                .ForMember(
+                    p => p.PropertyType,
+                    opt => opt.MapFrom(src => src.PropertyType.Name)
                 );
-            CreateMap<OwnerType, OwnerTypeDTO>();
             CreateMap<Account, AccountDTO>()
                 .ForMember(
                     t => t.AccountType,
                     opt => opt.MapFrom(src => src.AccountType.Name)
                 );
-            CreateMap<Owner, OwnerDTO>();
         }
     }
 }

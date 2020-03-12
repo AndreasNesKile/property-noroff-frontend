@@ -39,6 +39,9 @@ namespace backend.Data
                 .Include(type => type.PropertyType)
                 .FirstOrDefaultAsync();
 
+            result.OwnershipLogs = await _context.OwnershipLogs.Where(log => result.OwnershipLogs.Contains(log))
+                                                         .Include(log => log.Owner).ToListAsync();
+
             return result;
         }
     }
