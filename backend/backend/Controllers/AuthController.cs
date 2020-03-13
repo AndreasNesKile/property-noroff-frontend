@@ -24,11 +24,13 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Authenticate()
         {
+
             string role = TokenDecoder.GetUserRole(Request);
 
+            Console.WriteLine(role);
             if (role == "Agent")
             {
                 return Ok(role);
