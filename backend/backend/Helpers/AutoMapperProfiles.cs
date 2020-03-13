@@ -91,6 +91,7 @@ namespace backend.Helpers
                     t => t.AccountType,
                     opt => opt.MapFrom(src => src.AccountType.Name)
                 );
+            CreateMap<AccountForUpdateDTO, Account>();
         }
     }
 }

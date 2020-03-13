@@ -11,11 +11,9 @@ namespace backend.Models
     {
         public int Id { get; set; }
 
-        [Required]
         [Column(TypeName= "nvarchar(30)")]
         public string Name { get; set; }
 
-        [Required]
         [Column(TypeName = "nvarchar(40)")]
         public string Surname { get; set; }
 
@@ -23,7 +21,6 @@ namespace backend.Models
         [Column(TypeName = "nvarchar(50)")]
         public string Email { get; set; }
 
-        [Required]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
