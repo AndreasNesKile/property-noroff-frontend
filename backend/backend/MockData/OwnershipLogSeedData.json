@@ -1,23 +1,30 @@
 [
   {
-    "DateAquired": "1989-01-01",
+    "DateAcquired": "1989-01-01",
     "DateSold": "1990-03-02",
     "CreatedAt": "1989-01-01",
     "PropertyId": 1,
     "OwnerId": 1
   },
   {
-    "DateAquired": "2001-02-02",
+    "DateAcquired": "2001-02-02",
     "DateSold": "2003-04-03",
     "CreatedAt": "1989-01-01",
     "PropertyId": 1,
     "OwnerId": 2
   },
   {
-    "DateAquired": "1990-03-02",
+    "DateAcquired": "1990-03-02",
     "DateSold": "1990-03-02",
     "CreatedAt": "1990-04-02",
     "PropertyId": 2,
     "OwnerId": 2
+  },
+  {
+    "DateAcquired": "1990-03-02",
+    "DateSold": "",
+    "CreatedAt": "1990-04-02",
+    "PropertyId": 1,
+    "OwnerId": 3
   }
 ]

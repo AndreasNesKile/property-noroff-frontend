@@ -21,9 +21,8 @@ namespace backend.Data
 
             var properties = await _context.Properties
                 .Include(p => p.PropertyImages)
-                .Include(r => r.Renovations)
-                .Include(v => v.Valuations)
-                .Include(o => o.OwnershipLogs)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
                 .ToListAsync();
 
             return properties;
@@ -36,8 +35,13 @@ namespace backend.Data
                 .Include(r => r.Renovations)
                 .Include(v => v.Valuations)
                 .Include(o => o.OwnershipLogs)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
                 .FirstOrDefaultAsync();
 
+            result.OwnershipLogs = await _context.OwnershipLogs.Where(log => result.OwnershipLogs.Contains(log))
+                                                         .Include(log => log.Owner).Include(log => log.Owner.OwnerType).ToListAsync();
+            
             return result;
         }
     }
