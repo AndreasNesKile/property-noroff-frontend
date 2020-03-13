@@ -2,7 +2,7 @@
 	border-bottom: 1px solid rgba(39, 39, 39, 0.28);
 	margin-bottom: 1px;
 }
-.guest-details-row {
+.buyer-details-row {
 	margin: 0;
 }
 
@@ -13,12 +13,12 @@
 }
 @media only screen and (orientation: landscape) and (max-device-width: 850px) {
 	#buyer-section {
-		margin-top: 10vh;
+		margin-top: 25vh;
 	}
 }
 @media only screen and (max-width: 575px) {
 	#buyer-section {
-		margin-top: 45vh;
+		margin-top: 5vh;
 	}
 	table {
 		font-size: small;

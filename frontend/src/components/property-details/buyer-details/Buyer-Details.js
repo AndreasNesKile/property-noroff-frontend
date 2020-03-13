@@ -5,11 +5,11 @@ export default class BuyerDetails extends Component {
 	render() {
 		console.log(this.props);
 		return (
-			<section className="buyer-section pt-3 mt-4" id="buyer-section">
+			<section className="buyer-section pt-3" id="buyer-section">
 				<Container>
 					<h2 className="text-center">Additional Details</h2>
 				</Container>
-				<Row className="guest-details-row">
+				<Row className="buyer-details-row">
 					<Col md={{ span: 4, offset: 4 }} sm={{ span: 6, offset: 3 }} xs={12} className="col-md-offset-4">
 						<ListGroup className="mb-5">
 							<ListGroupItem className="d-flex justify-content-between">
