@@ -40,8 +40,8 @@ namespace backend.Data
                 .FirstOrDefaultAsync();
 
             result.OwnershipLogs = await _context.OwnershipLogs.Where(log => result.OwnershipLogs.Contains(log))
-                                                         .Include(log => log.Owner).ToListAsync();
-
+                                                         .Include(log => log.Owner).Include(log => log.Owner.OwnerType).ToListAsync();
+            
             return result;
         }
     }

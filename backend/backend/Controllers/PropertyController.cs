@@ -56,13 +56,7 @@ namespace backend.Controllers
                 //var propertyToReturn = _mapper.Map<PropertyDetailsToGuestDTO>(property);
                 //var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
                 var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
-                foreach (var item in propertyToReturn.OwnershipLogs)
-                {
-                    if (item.DateSold == DateTime.MinValue)
-                    {
-                        propertyToReturn.CurrentOwner = item.Owner;
-                    }
-                }
+
                 return Ok(propertyToReturn);
             }
         }

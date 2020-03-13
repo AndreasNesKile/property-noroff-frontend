@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using backend.DTO;
 using backend.Models;
+using System;
 using System.Linq;
 
 namespace backend.Helpers
@@ -56,17 +57,16 @@ namespace backend.Helpers
                     opt => opt.MapFrom(src => src.PropertyType.Name)
                 )
                 .ForMember(
-                    p => p.LastRenovated, 
-                    opt => {
-                        opt.MapFrom(src => 
+                    p => p.LastRenovated,
+                    opt => opt.MapFrom(src =>
                         /*
                          * Checks if the property has any renovation.
                          * If true, it maps the LastRenovated date to the date of the last renovation
                          * If false, it maps the date to the date the property was built
                          */
-                        src.Renovations.Any() ? 
-                        src.Renovations.Aggregate((R1, R2) => R1.DateTo > R2.DateTo ? R1 : R2).DateTo : src.CreatedAt);
-                });
+                        src.Renovations.Any() ?
+                        src.Renovations.Aggregate((R1, R2) => R1.DateTo > R2.DateTo ? R1 : R2).DateTo : src.CreatedAt)
+                );
             CreateMap<OwnerType, OwnerTypeDTO>();
             CreateMap<Property, PropertyDetailsToAgentDTO>()
                .ForMember(
@@ -80,6 +80,11 @@ namespace backend.Helpers
                 .ForMember(
                     p => p.PropertyType,
                     opt => opt.MapFrom(src => src.PropertyType.Name)
+                )
+                .ForMember(
+                    p => p.CurrentOwner,
+                    opt => opt.MapFrom(src =>  src.OwnershipLogs.Any() ? 
+                    src.OwnershipLogs.FirstOrDefault(o => !o.DateSold.HasValue).Owner : null)
                 );
             CreateMap<Account, AccountDTO>()
                 .ForMember(
