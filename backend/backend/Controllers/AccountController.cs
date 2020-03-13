@@ -72,6 +72,11 @@ namespace backend.Controllers
                 var userEmail = User.FindFirst(ClaimTypes.Email).Value;
 
                 var account = await _repo.GetAccountByEmail(userEmail);
+                
+                if(account == null)
+                {
+                    return Unauthorized("User not registered in database. Call GET /account/id");
+                }
 
                 _mapper.Map(accountForUpdate, account);
 
