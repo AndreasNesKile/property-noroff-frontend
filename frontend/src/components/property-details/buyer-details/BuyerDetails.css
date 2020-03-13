@@ -1,8 +1,26 @@
+.list-group-item {
+	border-bottom: 1px solid rgba(39, 39, 39, 0.28);
+	margin-bottom: 1px;
+}
+.guest-details-row {
+	margin: 0;
+}
+
+@media only screen and (max-width: 991px) {
+	#buyer-section {
+		margin-top: 3vh;
+	}
+}
+@media only screen and (orientation: landscape) and (max-device-width: 850px) {
+	#buyer-section {
+		margin-top: 10vh;
+	}
+}
 @media only screen and (max-width: 575px) {
-	.buyer-section {
-		margin-top: 28vh;
+	#buyer-section {
+		margin-top: 45vh;
 	}
 	table {
-		font-size: x-small;
+		font-size: small;
 	}
 }

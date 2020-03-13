@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+h3 {
+	font-family: 'Noto Serif', serif;
+	text-decoration-line: underline;
+	text-decoration-thickness: 3px;
+}

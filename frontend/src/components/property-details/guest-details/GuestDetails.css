@@ -2,16 +2,51 @@
 .guest-details {
 	font-family: 'Nunito', sans-serif;
 }
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+	border-radius: 35%;
+	background-color: black;
+	width: 2.2rem;
+	height: 2.2rem;
+}
+.type-style {
+	font-weight: 700;
+	color: rgb(61, 61, 61);
+	text-decoration-line: none !important;
+}
+.btn {
+	text-decoration: none;
+}
 h2 {
 	font-weight: 700;
 }
 .leaflet-map {
-	width: 80%;
+	width: 100%;
 	height: 100%;
+	border-radius: 5%;
 }
 .leaflet-col {
-	min-height: 30vh;
+	min-height: 33vh;
+	padding: 0;
 }
+
 .guest-info-container {
 	height: 30vh;
+}
+
+/* 987 */
+@media only screen and (max-width: 991px) {
+	#canvas {
+		padding-bottom: 2em;
+	}
+}
+@media only screen and (orientation: landscape) and (max-device-width: 850px) {
+	.leaflet-map {
+		width: 100%;
+		height: 100%;
+		border-radius: 5%;
+	}
+	.leaflet-row {
+		height: 70vh;
+	}
 }
