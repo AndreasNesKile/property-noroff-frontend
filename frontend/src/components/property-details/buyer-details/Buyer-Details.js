@@ -3,7 +3,6 @@ import { Container, Row, Col, Table, ListGroup, ListGroupItem } from 'react-boot
 import './BuyerDetails.css';
 export default class BuyerDetails extends Component {
 	render() {
-		console.log(this.props);
 		return (
 			<section className="buyer-section pt-3" id="buyer-section">
 				<Container>

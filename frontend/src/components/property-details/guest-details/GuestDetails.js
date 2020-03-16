@@ -22,18 +22,6 @@ export default class GuestDetails extends Component {
 		showQrCode: false
 	};
 
-	getQrCodeofUlr() {
-		QRCode.makeCode(window.location.href);
-	}
-	componentDidMount() {
-		if (this.state.showQrCode) {
-			var canvas = document.getElementById('canvas');
-			QRCode.toCanvas(canvas, window.location.href, function(error) {
-				if (error) console.error(error);
-			});
-		}
-	}
-
 	render() {
 		return (
 			<section className="guest-details text-center mb-4 pb-5">
@@ -58,18 +46,18 @@ export default class GuestDetails extends Component {
 				<Container className="container-fluid pb-2 guest-info-container">
 					<Row className="leaflet-row">
 						<Container>
-							<Row className="d-flex justify-content-around">
-								<spa>
-									<span className="type-style">Address: </span>
-									{this.props.property.line_1 ? this.props.property.line_1 : ''}
-								</spa>
-								<span>
+							<Row className="d-flex justify-content-center">
+								<span className="m-4">
 									<span className="type-style">Type: </span>
 									{this.props.property.propertyType ? this.props.property.propertyType : 'Apartment'}
 								</span>
-								<span>
+								<span className="m-4">
 									<span className="type-style">City: </span>
 									{this.props.property.city ? this.props.property.city : 'N/A'}
+								</span>
+								<span className="m-4">
+									<span className="type-style">Address: </span>
+									{this.props.property.line_1 ? this.props.property.line_1 : ''}
 								</span>
 							</Row>
 						</Container>
@@ -98,20 +86,3 @@ export default class GuestDetails extends Component {
 		);
 	}
 }
-// <Col xs={12} sm={{ span: 5 }} className="qrcode-col border-bottom dark-bg">
-// <Row className="d-flex p-4 justify-content-between">
-// <p>
-// 	<span className="type-style">Type: </span>
-// 	{this.props.property.propertyType
-// 		? this.props.property.propertyType
-// 		: 'Apartment'}
-// </p>
-// <p>
-// 	<span className="type-style">Address: </span>
-// 	{this.props.property.line_1 ? this.props.property.line_1 : ''}
-// </p>
-// </Row>
-// <Row className="d-flex justify-content-around">
-// <canvas id="canvas"></canvas>
-// </Row>
-// </Col>

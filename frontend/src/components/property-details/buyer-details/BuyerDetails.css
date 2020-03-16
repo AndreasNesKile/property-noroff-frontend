@@ -5,10 +5,12 @@
 .buyer-details-row {
 	margin: 0;
 }
-
+#buyer-section {
+	margin-top: 7vh;
+}
 @media only screen and (max-width: 991px) {
-	#buyer-section {
-		margin-top: 3vh;
+	.list-group {
+		font-size: 0.6rem;
 	}
 }
 @media only screen and (orientation: landscape) and (max-device-width: 850px) {
@@ -18,9 +20,9 @@
 }
 @media only screen and (max-width: 575px) {
 	#buyer-section {
-		margin-top: 5vh;
+		margin-top: 15.2vh;
 	}
-	table {
-		font-size: small;
+	.list-group {
+		font-size: x-small;
 	}
 }
