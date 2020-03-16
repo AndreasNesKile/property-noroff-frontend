@@ -94,6 +94,9 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<int>("OwnerTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
@@ -103,6 +106,8 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerTypeId");
 
                     b.ToTable("Owners");
                 });
@@ -136,7 +141,7 @@ namespace backend.Migrations
                     b.Property<DateTime>("DateAcquired")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateSold")
+                    b.Property<DateTime?>("DateSold")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("OwnerId")
@@ -215,6 +220,9 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Caption")
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int>("PropertyId")
                         .HasColumnType("int");
@@ -319,6 +327,15 @@ namespace backend.Migrations
                     b.HasOne("backend.Models.AccountType", "AccountType")
                         .WithMany()
                         .HasForeignKey("AccountTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("backend.Models.Owner", b =>
+                {
+                    b.HasOne("backend.Models.OwnerType", "OwnerType")
+                        .WithMany()
+                        .HasForeignKey("OwnerTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
