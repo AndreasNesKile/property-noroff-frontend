@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./UserManagement.module.css";
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class UserManagement extends React.Component {
   state = {
@@ -27,6 +28,7 @@ class UserManagement extends React.Component {
             <Form.Label>Password</Form.Label>
             <Form.Control type="Password" placeholder="Password" />
           </Form.Group>
+          <Button variant="primary" type="submit">Save changes</Button>
         </Form>
       </div>
     );
