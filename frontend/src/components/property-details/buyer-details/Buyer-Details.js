@@ -33,7 +33,7 @@ export default class BuyerDetails extends Component {
 							</ListGroupItem>
 							<ListGroupItem className="d-flex justify-content-between">
 								<b>Last Renovated:</b>
-								<i>Last renovated should be here</i>
+								<span>lORTHØNEPERMORTNE</span>
 							</ListGroupItem>
 						</ListGroup>
 					</Col>

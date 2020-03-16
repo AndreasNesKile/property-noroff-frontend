@@ -49,7 +49,7 @@ export default class GuestDetails extends Component {
 							<Row className="d-flex justify-content-center">
 								<span className="m-4">
 									<span className="type-style">Type: </span>
-									{this.props.property.propertyType ? this.props.property.propertyType : 'Apartment'}
+									{this.props.property.propertyType ? this.props.property.propertyType : 'N/A'}
 								</span>
 								<span className="m-4">
 									<span className="type-style">City: </span>
