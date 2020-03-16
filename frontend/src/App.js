@@ -2,8 +2,10 @@ import React from 'react';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Property from './components/Property/Property';
-import PropertyCatalogue from './components/PropertyCatalogue/PropertyCatalogue';
+import Property from "./components/Property/Property"
+import PropertyCatalogue from "./components/PropertyCatalogue/PropertyCatalogue"
+import UserManagement from "./components/UserManagement/UserManagement"
+
 import landingpage from './components/landing-page/landing-page';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -15,9 +17,9 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={landingpage} />
-					{/* <Route path="/Properties" component={} /> */}
+					<Route path="/Properties" component={PropertyCatalogue} />
 					<Route path="/Property/:id" component={PropertyDetails} />
-					{/* <Route path="/Profile" component={} /> */}
+					<Route path="/Profile" component={UserManagement} />
 				</Switch>
 			</div>
 		</Router>

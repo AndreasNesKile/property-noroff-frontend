@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
 using backend.DTO;
+using backend.Helpers;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -44,21 +46,53 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
         public async Task<IActionResult> GetProperty(int id)
         {
-            var property = await _repo.GetProperty(id);
-            if(property == null)
-            {
-                return NotFound(property);
-            } else
-            {
-                //var propertyToReturn = _mapper.Map<PropertyDetailsToGuestDTO>(property);
-                //var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
-                var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
+            Property property;
 
-                return Ok(propertyToReturn);
+            if (User.IsInRole("Agent"))
+            {
+                property = await _repo.GetAgentProperty(id);
+                if (property == null)
+                {
+                    return NotFound(property);
+                }
+                else
+                {
+                    var propertyToReturn = _mapper.Map<PropertyDetailsToAgentDTO>(property);
+
+                    return Ok(propertyToReturn);
+                }
             }
+            else if (User.IsInRole("Buyer"))
+            {
+                property = await _repo.GetBuyerProperty(id);
+                if (property == null)
+                {
+                    return NotFound(property);
+                }
+                else
+                {
+                    var propertyToReturn = _mapper.Map<PropertyDetailsToBuyerDTO>(property);
+
+                    return Ok(propertyToReturn);
+                }
+            }
+            else
+            {
+                property = await _repo.GetGuestProperty(id);
+                if (property == null)
+                {
+                    return NotFound(property);
+                }
+                else
+                {
+                    var propertyToReturn = _mapper.Map<PropertyDetailsToGuestDTO>(property);
+
+                    return Ok(propertyToReturn);
+                }
+            }
+            
         }
 
 

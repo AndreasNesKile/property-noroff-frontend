@@ -26,9 +26,32 @@ namespace backend.Data
                 .ToListAsync();
 
             return properties;
-        } 
+        }
 
-        public async Task<Property> GetProperty(int propertyId)
+        public async Task<Property> GetGuestProperty(int propertyId)
+        {
+            var result = await _context.Properties.Where(property => property.Id == propertyId)
+                .Include(p => p.PropertyImages)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
+                .FirstOrDefaultAsync();
+
+            return result;
+        }
+
+        public async Task<Property> GetBuyerProperty(int propertyId)
+        {
+            var result = await _context.Properties.Where(property => property.Id == propertyId)
+                .Include(p => p.PropertyImages)
+                .Include(r => r.Renovations)
+                .Include(status => status.PropertyStatus)
+                .Include(type => type.PropertyType)
+                .FirstOrDefaultAsync();
+
+            return result;
+        }
+
+        public async Task<Property> GetAgentProperty(int propertyId)
         {
             var result = await _context.Properties.Where(property => property.Id == propertyId)
                 .Include(p => p.PropertyImages)
