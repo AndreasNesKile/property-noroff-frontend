@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './BuyerDetails.css';
 export default class BuyerDetails extends Component {
 	render() {

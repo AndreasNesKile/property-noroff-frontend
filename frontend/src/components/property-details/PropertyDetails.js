@@ -34,20 +34,12 @@ export default class PropertyDetails extends Component {
 			this.toggleQr();
 			if (this.state.showQrCode) {
 				this.setState({ loading: false });
-				console.log('kom sæ hit');
 				let canvas = document.getElementById('canvas');
 				QRCode.toCanvas(canvas, window.location.href, function(error) {
 					if (error) console.error(error);
 				});
 			}
 		}, 3000);
-		// if (this.state.showQrCode) {
-		// 	console.log('kom sæ hit');
-		// 	let canvas = document.getElementById('canvas');
-		// 	QRCode.toCanvas(canvas, window.location.href, function(error) {
-		// 		if (error) console.error(error);
-		// 	});
-		// }
 	};
 	toggleQr = () => {
 		const toggledQr = !this.state.showQrCode;
