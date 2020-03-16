@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, FormGroup, FormLabel, FormControl, Row, Col, ButtonGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './landingpage.css';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 export default class landingpage extends Component {
 	state = {
