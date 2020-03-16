@@ -1,0 +1,28 @@
+.list-group-item {
+	border-bottom: 1px solid rgba(39, 39, 39, 0.28);
+	margin-bottom: 1px;
+}
+.buyer-details-row {
+	margin: 0;
+}
+#buyer-section {
+	margin-top: 7vh;
+}
+@media only screen and (max-width: 991px) {
+	.list-group {
+		font-size: 0.6rem;
+	}
+}
+@media only screen and (orientation: landscape) and (max-device-width: 850px) {
+	#buyer-section {
+		margin-top: 25vh;
+	}
+}
+@media only screen and (max-width: 575px) {
+	#buyer-section {
+		margin-top: 15.2vh;
+	}
+	.list-group {
+		font-size: x-small;
+	}
+}
