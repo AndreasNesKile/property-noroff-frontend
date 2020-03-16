@@ -15,6 +15,7 @@ namespace backend.DTO
         public string Country { get; set; }
         public string ZipCode { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime LastRenovated { get; set; }
         public OwnerDTO CurrentOwner { get; set; }
         public List<PropertyImageDTO> PropertyImages { get; set; }
         public List<RenovationDTO> Renovations { get; set; }
