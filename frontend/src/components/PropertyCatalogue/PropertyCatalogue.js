@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PropertyCatalogue.module.css";
 import Property from "../Property/Property"
+import NavigationBar from "../NavigationBar/NavigationBar"
 
 //React Bootstrap
 import CardDeck from 'react-bootstrap/CardDeck'
@@ -19,6 +20,7 @@ class PropertyCatalogue extends React.Component {
 
     return (
       <div>
+        <NavigationBar />
         <CardDeck className={styles.CardDeck}>
           <div className="Properties">{propertycards}</div>
         </CardDeck>
