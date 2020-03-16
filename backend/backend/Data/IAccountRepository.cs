@@ -7,6 +7,9 @@ namespace backend.Data
     public interface IAccountRepository
     {
         Task<Account> GetAccount(int id);
-        //Task<AccountDTO> UpdateAccount(int accountId);
+        Task<Account> GetAccountByEmail(string email);
+        Task<Account> CreateAccount(Account account);
+        Task<AccountType> GetAccountTypeByName(string accountTypeName);
+        Task<bool> SaveAll();
     }
 }
