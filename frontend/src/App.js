@@ -15,7 +15,7 @@ function App() {
 			<div className="App">
 				<Switch>
 					<Route exact path="/" component={landingpage} />
-					{/* <Route path="/Properties" component={} /> */}
+					<Route path="/Properties" component={PropertyCatalogue} />
 					<Route path="/Property/:id" component={PropertyDetails} />
 					{/* <Route path="/Profile" component={} /> */}
 				</Switch>
