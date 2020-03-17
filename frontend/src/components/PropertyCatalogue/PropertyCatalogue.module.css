@@ -1,15 +1,24 @@
+.CatalogueContainer {
+  text-align: center;
+}
+
+.RecentlyViewedContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.CardDeckContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .CardDeck {
-    text-align: center;
+  width: 90%;
+  justify-content: center;
 }
 
 .RecentlyViewed {
-    justify-content: center;
-
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-
-    width: 50%;
-    border: 1px inset black;
-    border-style: inset;
-    text-align: center;
+  margin-top: 7.5vh;
+  margin-bottom: 2.5vh;
+  justify-content: center;
 }

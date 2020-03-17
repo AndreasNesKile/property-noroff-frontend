@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./PropertyCatalogue.module.css";
 import Property from "../Property/Property"
+import RecentlyViewed from "../RecentlyViewed/RecentlyViewed"
 import NavigationBar from "../NavigationBar/NavigationBar"
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
 //React Bootstrap
 import CardDeck from 'react-bootstrap/CardDeck'
@@ -21,23 +23,27 @@ class PropertyCatalogue extends React.Component {
 
     const recentlyviewed = this.state.recentproperties.map((data, index) => {
       return (
-        <Property key={index} data={data} />
+        <RecentlyViewed key={index} data={data} />
       );
     });
 
     return (
-      <div>
+      <div className={styles.CatalogueContainer}>
         <NavigationBar />
         
-        <CardDeck className={styles.RecentlyViewed}>
-          <h5>Recently viewed:</h5>
-          <div className="Properties">{recentlyviewed}</div>
-        </CardDeck>
+        <div className={styles.RecentlyViewedContainer}>
+          <div className={styles.RecentlyViewed}>
+            <h4>Recently viewed:</h4>
+            <div className="Properties">{recentlyviewed}</div>
+          </div>
+        </div>
 
-        <CardDeck className={styles.CardDeck} >
-          <div className="Properties">{propertycards}</div>
-          <div>{this.state.properties[2].address.city}</div> {/* LIKE THIS LARS */}
-        </CardDeck>
+        <div className={styles.CardDeckContainer}>
+          <CardDeck className={styles.CardDeck} >
+            <div className="Properties">{propertycards}</div>
+            <div>{this.state.properties[2].address.city}</div> {/* LIKE THIS LARS */}
+          </CardDeck>
+        </div>
       </div>
     );
   }
