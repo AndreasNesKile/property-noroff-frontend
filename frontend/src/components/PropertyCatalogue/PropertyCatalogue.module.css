@@ -1,4 +1,15 @@
 .CardDeck {
     text-align: center;
-    margin-top: 75px;
+}
+
+.RecentlyViewed {
+    justify-content: center;
+
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+
+    width: 50%;
+    border: 1px inset black;
+    border-style: inset;
+    text-align: center;
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-function Property(props) {
+function RecentlyViewed(props) {
     console.log(props)
     return (
         <Card className={styles.CardContainer} >
@@ -19,4 +19,4 @@ function Property(props) {
     );
 };
 
-export default Property;
+export default RecentlyViewed;
