@@ -29,17 +29,18 @@ namespace backend.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAccount(int id)
         {
-            if(User.HasClaim(x => x.Type == ClaimTypes.Email))
+            if(User.HasClaim(x => x.Type == ClaimTypes.NameIdentifier))
             {
-                var userEmail = User.FindFirst(ClaimTypes.Email).Value;
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                var account = await _repo.GetAccountByEmail(userEmail);
+                var account = await _repo.GetAccount(userId);
 
                 if (account == null) 
                 {
                     var accountToCreate = new Account
                     {
-                        Email = userEmail,
+                        Id = userId,
+                        Email = User.HasClaim(x => x.Type == ClaimTypes.Email) ? User.FindFirst(ClaimTypes.Email).Value : null,
                         Active = true,
                         AccountType = await _repo.GetAccountTypeByName(User.FindFirst("https://property.com/roles").Value)
                     };
@@ -60,22 +61,21 @@ namespace backend.Controllers
             {
                 return Unauthorized("User lacks necessary credentials");
             }
-
         }
         
         [HttpPut("{id}")]
         [Authorize(Roles = "Buyer, Agent")]
         public async Task<IActionResult> UpdateAccount(int id, AccountForUpdateDTO accountForUpdate)
         {
-            if (User.HasClaim(x => x.Type == ClaimTypes.Email))
+            if (User.HasClaim(x => x.Type == ClaimTypes.NameIdentifier))
             {
-                var userEmail = User.FindFirst(ClaimTypes.Email).Value;
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                var account = await _repo.GetAccountByEmail(userEmail);
+                var account = await _repo.GetAccount(userId);
                 
                 if(account == null)
                 {
-                    return Unauthorized("User not registered in database. Call GET /account/id");
+                    return NotFound("User not found in database. Call GET /account/id to register");
                 }
 
                 _mapper.Map(accountForUpdate, account);

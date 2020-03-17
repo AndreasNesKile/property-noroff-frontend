@@ -10,6 +10,6 @@ namespace backend.DTO
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Boolean Active { get; set; }
+        public Boolean Active { get; set; } = true;
     }
 }

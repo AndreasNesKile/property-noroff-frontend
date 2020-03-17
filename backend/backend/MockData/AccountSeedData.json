@@ -1,5 +1,6 @@
 [
   {
+    "Id":  "1",
     "Name": "Ola",
     "Surname": "Nordmann",
     "Phone": 12345678,
@@ -10,6 +11,7 @@
     "AccountTypeId": 1
   },
   {
+    "Id": "2",
     "Name": "Jeims",
     "Surname": "Baond",
     "Phone": 87654321,
@@ -20,6 +22,7 @@
     "AccountTypeId": 2
   },
   {
+    "Id": "3",
     "Name": "Kari",
     "Surname": "Karlsen",
     "Phone": 12312312,
