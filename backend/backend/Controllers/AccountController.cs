@@ -40,7 +40,7 @@ namespace backend.Controllers
                     var accountToCreate = new Account
                     {
                         Id = userId,
-                        Email = User.HasClaim(x => x.Type == ClaimTypes.Email) ? User.FindFirst(ClaimTypes.Email).Value : null,
+                        Email = User.HasClaim(x => x.Type == "https://property.com/email") ? User.FindFirst("https://property.com/email").Value : null,
                         Active = true,
                         AccountType = await _repo.GetAccountTypeByName(User.FindFirst("https://property.com/roles").Value)
                     };
