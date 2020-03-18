@@ -1,12 +1,13 @@
 .list-group-item {
 	border-bottom: 1px solid rgba(39, 39, 39, 0.28);
 	margin-bottom: 1px;
+	border-radius: 0;
 }
 .buyer-details-row {
 	margin: 0;
 }
 #buyer-section {
-	margin-top: 7vh;
+	margin-top: 2vh;
 }
 @media only screen and (max-width: 991px) {
 	.list-group {

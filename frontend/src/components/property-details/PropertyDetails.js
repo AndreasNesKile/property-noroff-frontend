@@ -10,6 +10,11 @@ import './PropertyDetail.css';
 import axios from 'axios';
 let QRCode = require('qrcode');
 
+const config = {
+	headers: {
+		Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJFSkNNek5FTURNMFJUZ3hSVGt5UWpjMVFqSkJRa00wT1RReVF6VkdRelJHTnpJeU5VRTJNQSJ9.eyJodHRwczovL3Byb3BlcnR5LmNvbS9yb2xlcyI6WyJBZ2VudCJdLCJuaWNrbmFtZSI6ImV4YW1wbGUiLCJuYW1lIjoiZXhhbXBsZUBtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9mYmYyYjljZmMwYTQ3MjM4OWYzNjIwZTQ3MWJkZjBlOT9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmV4LnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIwLTAzLTE4VDExOjEzOjQzLjI4M1oiLCJlbWFpbCI6ImV4YW1wbGVAbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOi8vcHJvcGVydHlwcm9qZWN0LmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTY5NTYxZThmMDY1YTBjYWYyZjQxNTciLCJhdWQiOiJ3OFdlWXAyRVpCbThKNlg5TGtPQURKWjBja0tlWmg2bSIsImlhdCI6MTU4NDUzMDAyMywiZXhwIjoxNTg0NTY2MDIzfQ.u5bBxCNODkxxKG1OKYrg-vbWLahVi9_uglZ5bX8nNF6VG730EwTsIX-OIpQIuLpnN40w2eqrYUe-CViN4lVNVHBlOhJulctyuEFPk5gD6rxA81brjbblWGc9DjAxql_rGUqSJJkqoMT9d6--5nW91-2xOn7eSPwsPG3p89i1w3wMA1Vp5Ai5AqjcuzD8J5Yl_C-MRwEgajQEcOmRFqlwtITcQ8Lcao4_wcYusvbcBy7FSISAJu8FGAh6QzamdeNpqX6-_Zq2lFFXDZsKJHmllKOzq7AJAm6zUzIBpKt6eHSQNfOdQTrTEELTrH2Pye2pSMhXacE7mtK9bYc2owlipw`
+	}
+};
 export default class PropertyDetails extends Component {
 	state = {
 		property: null,
@@ -18,9 +23,9 @@ export default class PropertyDetails extends Component {
 		loading: false
 	};
 	async componentDidMount() {
-		let Api_Url = `https://localhost:5001/api/properties/${this.props.match.params.id}`;
+		let Api_Url = `http://localhost:5000/api/properties/${this.props.match.params.id}`;
 		try {
-			await axios.get(Api_Url).then((res) => {
+			await axios.get(Api_Url, config).then((res) => {
 				this.setState({ property: res.data });
 				console.log(this.state.property);
 			});
