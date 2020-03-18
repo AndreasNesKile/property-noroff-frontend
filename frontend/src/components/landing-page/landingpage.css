@@ -6,6 +6,8 @@
 }
 .wrapper {
 	box-shadow: 1px 1px 0.7rem #043670a9;
+	padding-top: 1rem;
+	background-color: #fff;
 	padding-bottom: 1rem;
 	margin: 0 auto;
 }
