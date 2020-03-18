@@ -3,10 +3,11 @@ import styles from "./PropertyCatalogue.module.css";
 import Property from "../Property/Property"
 import RecentlyViewed from "../RecentlyViewed/RecentlyViewed"
 import NavigationBar from "../NavigationBar/NavigationBar"
-import Jumbotron from 'react-bootstrap/Jumbotron'
 
 //React Bootstrap
 import CardDeck from 'react-bootstrap/CardDeck'
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
 
 class PropertyCatalogue extends React.Component {
   state = {
@@ -25,7 +26,6 @@ class PropertyCatalogue extends React.Component {
     } else if(sessionStorage.getItem("Rview1") != null) {
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview1")]);
     } else {
-      console.log("Nothing to report chiefieboy")
     }
   }
 
@@ -46,7 +46,7 @@ class PropertyCatalogue extends React.Component {
     return (
       <div className={styles.CatalogueContainer}>
         <NavigationBar />
-        
+  
         <div className={styles.RecentlyViewedContainer}>
           <div className={styles.RecentlyViewed}>
             <h4>Recently viewed:</h4>
