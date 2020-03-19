@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
@@ -44,11 +45,11 @@ namespace backend
             }).AddJwtBearer(options =>
             {
                 options.Authority = Configuration.GetSection("AuthApi").GetSection("Domain").Value;
-                //options.Audience = Configuration.GetSection("AuthApi").GetSection("Identifier").Value;
-                options.Audience = Configuration.GetSection("AuthApi").GetSection("TestIdentifier").Value;
+                options.Audience = Configuration.GetSection("AuthApi").GetSection("Identifier").Value;
+                //options.Audience = Configuration.GetSection("AuthApi").GetSection("TestIdentifier").Value;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    NameClaimType = "Roles",
+                    //NameClaimType = "Roles",
                     RoleClaimType = "https://property.com/roles"
                 };
             });
