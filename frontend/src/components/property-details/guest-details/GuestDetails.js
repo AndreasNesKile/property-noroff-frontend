@@ -5,18 +5,6 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 export default class GuestDetails extends Component {
 	state = {
-		// 	images: [
-		// 		{
-		// 			id: 1,
-		// 			src: 'https://i.imgur.com/sVXbEbh.png',
-		// 			text: 'Utsiden av huset'
-		// 		},
-		// 		{
-		// 			id: 2,
-		// 			src: 'https://i.imgur.com/FHtQbYT.png',
-		// 			text: 'Innsiden av huset'
-		// 		}
-		// 	],
 		position: [51.505, -0.09],
 		showQrCode: false
 	};
@@ -30,7 +18,12 @@ export default class GuestDetails extends Component {
 							<Carousel className="carousel-img" id="carousel">
 								{this.props.property.propertyImages.map((img, index) => (
 									<Carousel.Item key={index}>
-										<img src={img.url} className=" img-carousel" alt={img.caption} />
+										<img
+											src={img.url}
+											className=" img-carousel"
+											alt={img.caption}
+											// style={{ maxHeight: '720px' }}
+										/>
 										<Carousel.Caption>
 											<h4>{img.caption}</h4>
 										</Carousel.Caption>

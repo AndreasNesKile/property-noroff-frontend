@@ -2,27 +2,19 @@ import React, { Component } from 'react';
 import { Container, FormGroup, FormLabel, FormControl, Row, Col, ButtonGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './landingpage.css';
-import NavigationBar from '../NavigationBar/NavigationBar';
 
 export default class landingpage extends Component {
 	state = {
 		role: null
 	};
 
-	onClickGuest() {
-		this.setState({ role: 'guest' });
-	}
 	render() {
 		return (
 			<Container className="container-fluid mt-5">
 				<div className="wrapper text-center">
 					<Row>
 						<Col>
-							<img
-								src="https://www.freelogovector.com/wp-content/uploads/2017/06/02%20-%20PNG%20property%20copy.jpg"
-								className="img-fluid"
-								alt="property"
-							/>
+							<img src="https://i.imgur.com/n4n5xBJ.jpg" className="img-fluid" alt="property" />
 						</Col>
 					</Row>
 					<div className="login">
@@ -55,10 +47,7 @@ export default class landingpage extends Component {
 											</Col>
 											<Col sm={9} md={3} className="text-left text-sm-center offset-sm-1">
 												<Link to={'/Properties'}>
-													<Button
-														className="btn-success  guest-button"
-														onClick={this.onClickGuest}
-													>
+													<Button className="btn-success  guest-button">
 														Continue as guest
 													</Button>
 												</Link>
