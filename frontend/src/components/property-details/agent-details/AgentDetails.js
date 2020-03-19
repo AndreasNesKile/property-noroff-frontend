@@ -51,26 +51,42 @@ export default class AgentDetails extends Component {
 						</Col>
 						<Col xs={{ span: 8, offset: 2 }} sm={{ span: 5, offset: 0 }} className="mt-3">
 							<h3>Current Owner:</h3>
-							<ListGroup>
-								<ListGroupItem className=" d-flex justify-content-between">
-									<i>Name:</i>
-									<b>
-										{this.props.property.currentOwner.name
-											? this.props.property.currentOwner.name +
-											  ' ' +
-											  this.props.property.currentOwner.surname
-											: ''}
-									</b>
-								</ListGroupItem>
-								<ListGroupItem className=" d-flex justify-content-between">
-									<i>Phone-number:</i>
-									<b>{this.props.property.currentOwner.phone}</b>
-								</ListGroupItem>
-								<ListGroupItem className=" d-flex justify-content-between">
-									<i>E-mail:</i>
-									<b>{this.props.property.currentOwner.email}</b>
-								</ListGroupItem>
-							</ListGroup>
+							{this.props.property.owner ? (
+								<ListGroup>
+									<ListGroupItem className=" d-flex justify-content-between">
+										<i>Name:</i>
+										<b>
+											{this.props.property.currentOwner.name
+												? this.props.property.currentOwner.name +
+												  ' ' +
+												  this.props.property.currentOwner.surname
+												: 'No name available'}
+										</b>
+									</ListGroupItem>
+									<ListGroupItem className=" d-flex justify-content-between">
+										<i>Phone-number:</i>
+										<b>
+											{this.props.property.currentOwner.phone
+												? this.props.property.currentOwner.phone
+												: 'No number available'}
+										</b>
+									</ListGroupItem>
+									<ListGroupItem className=" d-flex justify-content-between">
+										<i>E-mail:</i>
+										<b>
+											{this.props.property.currentOwner.email
+												? this.props.property.currentOwner.email
+												: 'No email available'}
+										</b>
+									</ListGroupItem>
+								</ListGroup>
+							) : (
+								<ListGroup>
+									<ListGroupItem className=" d-flex justify-content-around">
+										<b>This property has no current owner</b>
+									</ListGroupItem>
+								</ListGroup>
+							)}
 						</Col>
 					</Row>
 					<Row className="mt-5">
@@ -86,25 +102,6 @@ export default class AgentDetails extends Component {
 						</Col>
 						<Col xs={{ span: 10, offset: 1 }}>
 							<h3 className="mt-5">Renovation History:</h3>
-							{/* <ListGroup className="mt-4">
-								{this.props.property.renovations.map((ren, index) => (
-									<div className="mb-5 renovation-card" key={index}>
-										<h4 className="text-left">
-											{ren.description}
-										</h4>
-										<ListGroupItem className="d-flex justify-content-around align-items-center rounded-0 text-left renovation-list-group-item">
-											<span>
-												<b>Renovation From date: </b>
-												<i>{ren.dateFrom.substr(0, 10)}</i>
-											</span>
-											<span>
-												<b>To date: </b>
-												<i>{ren.dateTo.substr(0, 10)}</i>
-											</span>
-										</ListGroupItem>
-									</div>
-								))}
-							</ListGroup> */}
 							<Container className="timeline-container">
 								<div className="timeline">
 									<div className="timeline-left timeline-child-container" id="left-timeline"></div>
