@@ -18,7 +18,12 @@ export default class GuestDetails extends Component {
 							<Carousel className="carousel-img" id="carousel">
 								{this.props.property.propertyImages.map((img, index) => (
 									<Carousel.Item key={index}>
-										<img src={img.url} className=" img-carousel" alt={img.caption} />
+										<img
+											src={img.url}
+											className=" img-carousel"
+											alt={img.caption}
+											// style={{ maxHeight: '720px' }}
+										/>
 										<Carousel.Caption>
 											<h4>{img.caption}</h4>
 										</Carousel.Caption>

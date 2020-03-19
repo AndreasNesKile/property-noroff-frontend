@@ -30,7 +30,8 @@ function App() {
 			let fetchedToken = await getTokenSilently();
 			setToken(fetchedToken);
 			let decoded = jwtDecode(token);
-			setRole(decoded['https://property.com/roles'][0]);
+			console.log(decoded);
+			setRole(decoded['https://property.com/roles']);
 			sessionStorage.setItem('token', token);
 		} catch (error) {
 			console.error(error);

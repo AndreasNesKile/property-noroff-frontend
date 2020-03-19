@@ -54,6 +54,7 @@ export default class PropertyDetails extends Component {
 		this.setState({ showQrCode: toggledQr });
 	};
 	render() {
+		console.log(this.props);
 		return (
 			<div className="container-app">
 				<LoadingSpinner loading={this.state.loading} />

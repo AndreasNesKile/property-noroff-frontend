@@ -14,11 +14,7 @@ export default class landingpage extends Component {
 				<div className="wrapper text-center">
 					<Row>
 						<Col>
-							<img
-								src="https://www.freelogovector.com/wp-content/uploads/2017/06/02%20-%20PNG%20property%20copy.jpg"
-								className="img-fluid"
-								alt="property"
-							/>
+							<img src="https://i.imgur.com/n4n5xBJ.jpg" className="img-fluid" alt="property" />
 						</Col>
 					</Row>
 					<div className="login">
