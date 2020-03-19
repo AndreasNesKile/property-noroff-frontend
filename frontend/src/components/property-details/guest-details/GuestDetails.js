@@ -5,18 +5,6 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 export default class GuestDetails extends Component {
 	state = {
-		// 	images: [
-		// 		{
-		// 			id: 1,
-		// 			src: 'https://i.imgur.com/sVXbEbh.png',
-		// 			text: 'Utsiden av huset'
-		// 		},
-		// 		{
-		// 			id: 2,
-		// 			src: 'https://i.imgur.com/FHtQbYT.png',
-		// 			text: 'Innsiden av huset'
-		// 		}
-		// 	],
 		position: [51.505, -0.09],
 		showQrCode: false
 	};

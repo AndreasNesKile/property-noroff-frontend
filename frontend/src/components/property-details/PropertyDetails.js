@@ -28,7 +28,6 @@ export default class PropertyDetails extends Component {
 			let Api_Url = `http://localhost:5000/api/properties/${this.props.match.params.id}`;
 			try {
 				await axios.get(Api_Url, this.state.config).then((res) => {
-					console.log(res);
 					this.setState({ property: res.data });
 					console.log(this.state.property);
 				});

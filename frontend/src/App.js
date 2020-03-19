@@ -44,13 +44,13 @@ function App() {
 			<div className="App">
 				<NavigationBar />
 				<Switch>
-					<Route exact path="/" component={landingpage} />
-					<Route path="/Properties" component={PropertyCatalogue} />
+					<Route exact path="/Properties" component={PropertyCatalogue} />
 					<Route
-						path="/Property/:id"
+						path="/Properties/:id"
 						render={(routeProps) => <PropertyDetails role={role} token={token} {...routeProps} />}
 					/>
 					<Route path="/Profile" component={UserManagement} />
+					<Route path="/" component={landingpage} />
 				</Switch>
 			</div>
 		</Router>

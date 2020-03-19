@@ -51,7 +51,7 @@ export default class AgentDetails extends Component {
 						</Col>
 						<Col xs={{ span: 8, offset: 2 }} sm={{ span: 5, offset: 0 }} className="mt-3">
 							<h3>Current Owner:</h3>
-							{this.props.property.owner ? (
+							{this.props.property.currentOwner ? (
 								<ListGroup>
 									<ListGroupItem className=" d-flex justify-content-between">
 										<i>Name:</i>
