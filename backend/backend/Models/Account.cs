@@ -9,7 +9,7 @@ namespace backend.Models
 {
     public class Account
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Column(TypeName= "nvarchar(30)")]
         public string Name { get; set; }
