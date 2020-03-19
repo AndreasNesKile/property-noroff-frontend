@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button'
 
 
 function Property(props) {
-
     function handleClick() {
         if (sessionStorage.getItem("Rview1") === null) {
             sessionStorage.setItem("Rview1",props.index)
@@ -22,13 +21,18 @@ function Property(props) {
         }
     }
 
+    let cardImage = null
+    if(props.data.propertyImage){
+        cardImage = props.data.propertyImage.url
+    }
+
     return (
         <Card className={styles.CardContainer} >
-            <Card.Img variant="top" src={props.data.image} />
+            <Card.Img variant="top" src={cardImage + ".jpg"} />
             <Card.Body>
-                <Card.Title>{props.data.address.city}</Card.Title>
-                <Card.Text>{props.data.address.street}</Card.Text>
-                <Button onClick={handleClick} variant="primary">More information</Button>
+                <Card.Title>{props.data.city}</Card.Title>
+                <Card.Text>{props.data.line_1}</Card.Text>
+                <Link to={`Property/${props.data.id}`}><Button onClick={handleClick} variant="primary">More information</Button></Link>
             </Card.Body>
         </Card>
     );
