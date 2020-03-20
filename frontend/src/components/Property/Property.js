@@ -30,8 +30,8 @@ function Property(props) {
             <Card bg="light" text="dark" onClick={handleClick} className={styles.CardContainer} >
                 <Card.Body>
                 <Card.Title>{props.data.city}</Card.Title>
-                    <Card.Img variant="top" src={cardImage + ".jpg"} />
                     <Card.Text>{props.data.line_1}</Card.Text>
+                    <Card.Img className={styles.CardImg} variant="top" src={cardImage + ".jpg"} />
                 </Card.Body>
             </Card>
         </Link>
