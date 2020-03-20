@@ -15,12 +15,12 @@ namespace backend.Models
     {
         public int Id { get; set; }
         [Required]
-        [Column(TypeName = "nvarchar(60)")]
+        [Column(TypeName = "nvarchar(160)")]
         public string Name { get; set; }
 
         public int Value { get; set; }
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(80)")]
         public string Line_1 { get; set; } // Street Address
         [Column(TypeName = "nvarchar(30)")]
         public string Line_2 { get; set; } // Apartment Number
@@ -34,7 +34,7 @@ namespace backend.Models
         [Column(TypeName = "nvarchar(40)")]
         public string Country { get; set; }
         [Required]
-        [Column(TypeName = "nvarchar(8)")]
+        [Column(TypeName = "nvarchar(10)")]
         public string ZipCode { get; set; }
         public string XCoordinate { get; set; }
         public string YCoordinate { get; set; }
