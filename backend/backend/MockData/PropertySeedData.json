@@ -118,5 +118,20 @@
     "CreatedAt": "2007-03-10",
     "PropertyStatusId": "1",
     "PropertyTypeId": "2"
+  },
+  {
+    "Name": "Nice modern house in Asaka, near the outskirts of Tokyo in an attractive area",
+    "Value": "6780000",
+    "Line_1": "3-chome-2 Miyado",
+    "Line_2": "",
+    "Municipality": "Saitama",
+    "City": "Asaka",
+    "Country": "Japan",
+    "ZipCode": "351-0031",
+    "XCoordinate": "35.827450",
+    "YCoordinate": "139.587485",
+    "CreatedAt": "2007-03-10",
+    "PropertyStatusId": "1",
+    "PropertyTypeId": "2"
   }
 ]
