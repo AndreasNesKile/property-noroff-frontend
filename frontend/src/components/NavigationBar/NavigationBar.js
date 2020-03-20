@@ -11,21 +11,21 @@ const NavigationBar = () => {
 
 	return (
 		<div className={styles.NavContainer}>
-			<Navbar bg="light" fixed="top">
-				<Link to="/Properties">
+			<Navbar bg="light" fixed="top" className={styles.navbar}>
+				<Link to="/properties">
 					<Navbar.Brand>
-						<img width="60" className="d-inline-block align-top" src="/property.png" />
+						<img width="60" className="d-inline-block align-top" src="/property.png" alt="logo" />
 					</Navbar.Brand>
 				</Link>
 				<Nav className="mr-auto">
-					<Link to="/Properties">
+					<Link to="/properties">
 						<Nav>Home</Nav>
 					</Link>
 				</Nav>
 				<Nav className="mr-sm-2">
-					<Link to="/Profile">
+					<Link to="/profile">
 						<Nav>
-							<img width="25" className="d-inline-block align-top" src="/user.png" />
+							<img width="25" className="d-inline-block align-top" src="/user.png" alt="profile" />
 						</Nav>
 					</Link>
 				</Nav>

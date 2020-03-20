@@ -45,12 +45,12 @@ function App() {
 			<div className="App">
 				<NavigationBar />
 				<Switch>
-					<Route exact path="/Properties" component={PropertyCatalogue} />
+					<Route exact path="/properties" component={PropertyCatalogue} />
 					<Route
-						path="/Properties/:id"
+						path="/properties/:id"
 						render={(routeProps) => <PropertyDetails role={role} token={token} {...routeProps} />}
 					/>
-					<Route path="/Profile" component={UserManagement} />
+					<Route path="/profile" component={UserManagement} />
 					<Route path="/" component={landingpage} />
 				</Switch>
 			</div>
