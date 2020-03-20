@@ -36,6 +36,8 @@ namespace backend.Models
         [Required]
         [Column(TypeName = "nvarchar(8)")]
         public string ZipCode { get; set; }
+        public string XCoordinate { get; set; }
+        public string YCoordinate { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<PropertyImage> PropertyImages { get; set; }
         public List<Renovation> Renovations { get; set; }
