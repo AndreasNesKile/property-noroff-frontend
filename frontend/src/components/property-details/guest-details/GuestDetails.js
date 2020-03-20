@@ -11,16 +11,16 @@ export default class GuestDetails extends Component {
 
 	render() {
 		return (
-			<section className="guest-details text-center mb-4 pb-5">
+			<section className="guest-details text-center  pb-5">
 				<Container className="mt-5 carousel-container container-fluid">
 					<Row>
-						<Col>
-							<Carousel className="carousel-img" id="carousel">
+						<Col className="m-0 p-0">
+							<Carousel className="carousel-guest" id="carousel">
 								{this.props.property.propertyImages.map((img, index) => (
 									<Carousel.Item key={index}>
 										<img
 											src={img.url}
-											className=" img-carousel"
+											className="img-carousel embed-responsive"
 											alt={img.caption}
 											// style={{ maxHeight: '720px' }}
 										/>
@@ -34,7 +34,7 @@ export default class GuestDetails extends Component {
 						</Col>
 					</Row>
 				</Container>
-				<Container className="container-fluid pb-2 guest-info-container">
+				<Container className="container-fluid guest-info-container">
 					<Row className="leaflet-row">
 						<Container>
 							<Row className="d-flex justify-content-center">

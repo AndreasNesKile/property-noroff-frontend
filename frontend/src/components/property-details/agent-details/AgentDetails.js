@@ -28,7 +28,7 @@ export default class AgentDetails extends Component {
 
 	render() {
 		return (
-			<section className="border border-darken-4 text-center mt-2">
+			<section className="text-center mt-2 agent-details">
 				<Container className="mt-5">
 					<h1>Agent Details</h1>
 					<Row className="mt-5">
