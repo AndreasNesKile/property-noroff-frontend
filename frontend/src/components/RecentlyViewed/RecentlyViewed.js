@@ -20,7 +20,7 @@ function RecentlyViewed(props) {
 
     return (
         <Card className={styles.CardContainer}>
-            <Link to={`Property/${props.data.id}`}><Card.Img variant="top" src={cardImage + ".jpg"} /></Link>
+            <Link to={`Properties/${props.data.id}`}><Card.Img variant="top" src={cardImage + ".jpg"} /></Link>
         </Card>
     );
 };

@@ -3,7 +3,6 @@ import styles from "./Property.module.css";
 import { Link } from "react-router-dom"
 //React Bootstrap
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 
 
 
@@ -27,14 +26,15 @@ function Property(props) {
     }
 
     return (
-        <Card className={styles.CardContainer} >
-            <Card.Img variant="top" src={cardImage + ".jpg"} />
-            <Card.Body>
+        <Link to={`Properties/${props.data.id}`}>
+            <Card bg="light" text="dark" onClick={handleClick} className={styles.CardContainer} >
+                <Card.Body>
                 <Card.Title>{props.data.city}</Card.Title>
-                <Card.Text>{props.data.line_1}</Card.Text>
-                <Link to={`Property/${props.data.id}`}><Button onClick={handleClick} variant="primary">More information</Button></Link>
-            </Card.Body>
-        </Card>
+                    <Card.Img variant="top" src={cardImage + ".jpg"} />
+                    <Card.Text>{props.data.line_1}</Card.Text>
+                </Card.Body>
+            </Card>
+        </Link>
     );
 };
 
