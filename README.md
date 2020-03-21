@@ -6,20 +6,19 @@ Welcome to the property project! This is a project created in collaboration with
 
 The Property Project are made with following technologies:
 
-![logo](https://reactjs.org/logo-og.png)
+![logo](https://reactjs.org/logo-og.png){:height="24px" width="48px"}
 
 -   [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
-![logo](https://i0.wp.com/www.ryadel.com/wp-content/uploads/2018/11/asp-net-core-logo.png?fit=735%2C300&ssl=1)
+![logo](https://i0.wp.com/www.ryadel.com/wp-content/uploads/2018/11/asp-net-core-logo.png?fit=735%2C300&ssl=1){:height="24px" width="48px"}
 
 -   [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) - ASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected applications
 
-![logo](https://pbs.twimg.com/profile_images/718515839687741440/dGvlzORH_400x400.jpg)
+![logo](https://pbs.twimg.com/profile_images/718515839687741440/dGvlzORH_200x200.jpg){:height="24px" width="48px"}
 
 -   [Auth0](https://auth0.com/) - Rapidly integrate authentication and authorization for web, mobile, and legacy applications so you can focus on your core business.
--
 
-![logo](https://leafletjs.com/docs/images/logo.png)
+![logo](https://leafletjs.com/docs/images/logo.png){:height="24px" width="48px"}
 
 -   [Leaflet.JS](https://leafletjs.com/) - an open-source JavaScript library for mobile-friendly interactive maps.
 
