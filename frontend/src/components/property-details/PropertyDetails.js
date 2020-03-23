@@ -37,6 +37,7 @@ export default class PropertyDetails extends Component {
 			}
 		}
 	}
+	+
 	ShowQr = () => {
 		this.setState({ loading: true });
 		setTimeout(() => {
@@ -48,7 +49,7 @@ export default class PropertyDetails extends Component {
 					if (error) console.error(error);
 				});
 			}
-		}, 3000);
+		}, 1200);
 	};
 	toggleQr = () => {
 		const toggledQr = !this.state.showQrCode;
@@ -59,13 +60,7 @@ export default class PropertyDetails extends Component {
 		return (
 			<div className="container-app">
 				<LoadingSpinner loading={this.state.loading} />
-				<Modal
-					show={this.state.showQrCode}
-					className="text-center modal-size"
-					// onClick={this.toggleQr}
-					onHide={this.toggleQr}
-					size="lg"
-				>
+				<Modal show={this.state.showQrCode} className="text-center modal-size" onHide={this.toggleQr}>
 					<Modal.Header className="d-flex justify-content-around">
 						<Modal.Title>Qr-code for sharing this page</Modal.Title>
 					</Modal.Header>
