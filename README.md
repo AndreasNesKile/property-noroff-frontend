@@ -6,19 +6,19 @@ Welcome to the property project! This is a project created in collaboration with
 
 The Property Project are made with following technologies:
 
-![logo](\assets\react-logo.png)
+![logo](https://imgur.com/Zp1R1k7.jpg)
 
 -   [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
-![logo]("assets/dotnet-logo.png")
+![logo](https://imgur.com/8c45naP.jpg)
 
 -   [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) - ASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected applications
 
-![logo]("assets/auth0-logo.png")
+![logo](https://imgur.com/K8n7yPf.jpg)
 
 -   [Auth0](https://auth0.com/) - Rapidly integrate authentication and authorization for web, mobile, and legacy applications so you can focus on your core business.
 
-![logo]("assets/leaflet-logo.png")
+![logo](https://imgur.com/UqUK585.jpg)
 
 -   [Leaflet.JS](https://leafletjs.com/) - an open-source JavaScript library for mobile-friendly interactive maps.
 
