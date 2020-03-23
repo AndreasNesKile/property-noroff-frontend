@@ -12,6 +12,8 @@ namespace backend.DTO
         public string Line_1 { get; set; } // Street Address
         public string Line_2 { get; set; } // Apartment Number
         public string City { get; set; }
+        public string XCoordinate { get; set; }
+        public string YCoordinate { get; set; }
         public List<PropertyImageDTO> PropertyImages { get; set; }
         public string PropertyStatus { get; set; }
         public string PropertyType { get; set; }

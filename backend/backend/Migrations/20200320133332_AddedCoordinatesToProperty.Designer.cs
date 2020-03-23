@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
 namespace backend.Migrations
 {
     [DbContext(typeof(PropertyDbContext))]
-    partial class PropertyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200320133332_AddedCoordinatesToProperty")]
+    partial class AddedCoordinatesToProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,7 +177,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Line_1")
                         .IsRequired()
-                        .HasColumnType("nvarchar(80)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Line_2")
                         .HasColumnType("nvarchar(30)");
@@ -186,7 +188,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(160)");
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<int>("PropertyStatusId")
                         .HasColumnType("int");
@@ -205,7 +207,7 @@ namespace backend.Migrations
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(8)");
 
                     b.HasKey("Id");
 
