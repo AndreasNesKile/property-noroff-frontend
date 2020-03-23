@@ -5,6 +5,7 @@
   margin-top: 2vh;
   margin-left: 2vh;
   transition: 0.3s;
+  background-color: whitesmoke;
 }
 
 .CardImg {
@@ -17,9 +18,13 @@
 }
 
 .CardContainer:hover {
-  background-color: lightcyan !important;
+  background-color: lightcyan;
 }
 
 .CardTitle {
   font-weight: 500;
+}
+
+.Line1 {
+  font-style: italic;
 }

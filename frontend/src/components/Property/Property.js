@@ -13,6 +13,15 @@ function Property(props) {
         } else if(sessionStorage.getItem("Rview2") === null) {
             sessionStorage.setItem("Rview2",sessionStorage.getItem("Rview1"))
             sessionStorage.setItem("Rview1",props.index)
+        } else if(sessionStorage.getItem("Rview1") == props.index) {
+            //Do nothing - DO NOT REMOVE
+        } else if(sessionStorage.getItem("Rview2") == props.index) {
+            sessionStorage.setItem("Rview2",sessionStorage.getItem("Rview1"))
+            sessionStorage.setItem("Rview1",props.index)
+        } else if(sessionStorage.getItem("Rview3") == props.index) {
+            sessionStorage.setItem("Rview3",sessionStorage.getItem("Rview2"))
+            sessionStorage.setItem("Rview2",sessionStorage.getItem("Rview1"))
+            sessionStorage.setItem("Rview1",props.index)
         } else {
             sessionStorage.setItem("Rview3",sessionStorage.getItem("Rview2"))
             sessionStorage.setItem("Rview2",sessionStorage.getItem("Rview1"))
@@ -27,12 +36,11 @@ function Property(props) {
 
     return (
         <Link to={`Properties/${props.data.id}`}>
-            <Card border="light" bg="light" text="dark" onClick={handleClick} className={styles.CardContainer} >
+            <Card border="light" text="dark" onClick={handleClick} className={styles.CardContainer} >
                 <Card.Body>
                 <Card.Title className={styles.CardTitle}>{props.data.city}</Card.Title>
                 <Card.Img className={styles.CardImg} variant="top" src={cardImage + ".jpg"} />
-                    <Card.Text>{props.data.line_1}</Card.Text>
-                    
+                    <Card.Text className={styles.Line1}>{props.data.line_1}</Card.Text>
                 </Card.Body>
             </Card>
         </Link>

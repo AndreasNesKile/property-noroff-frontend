@@ -7,8 +7,6 @@ import Button from 'react-bootstrap/Button'
 import { Renderer } from "leaflet";
 
 function RecentlyViewed(props) {
-    console.log(props.data)
-
     let cardImage = null
     if(props.data){
         cardImage = props.data.propertyImage.url
