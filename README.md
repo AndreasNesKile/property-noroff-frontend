@@ -6,7 +6,7 @@ Welcome to the property project! This is a project created in collaboration with
 
 The Property Project are made with following technologies:
 
-![logo](https://imgur.com/Zp1R1k7.png)
+![logo](https://imgur.com/pm6WSsI.png)
 
 -   [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
