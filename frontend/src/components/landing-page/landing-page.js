@@ -18,7 +18,7 @@ export default class landingpage extends Component {
 					<Card.Body className="landing-page-card-body">
 						<Card.Title>Find your next home</Card.Title>
 						<Link to="/properties">
-							<Button variant="success">Start looking</Button>
+							<Button className="landing-page-btn">Start looking</Button>
 						</Link>
 					</Card.Body>
 				</Card>

@@ -37,7 +37,6 @@ export default class PropertyDetails extends Component {
 			}
 		}
 	}
-	+
 	ShowQr = () => {
 		this.setState({ loading: true });
 		setTimeout(() => {

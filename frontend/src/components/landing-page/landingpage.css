@@ -32,7 +32,15 @@
 	opacity: 0.95;
 	background-color: rgba(23, 130, 172);
 }
-
+.landing-page-btn {
+	background-color: #43a047;
+	border: 1px solid #006064;
+}
+.landing-page-btn:hover {
+	background-color: #1b5e20;
+	color: #fff;
+	font-weight: 600;
+}
 /* Animation to border beneath */
 .gradient-border {
 	--borderWidth: 5px;
