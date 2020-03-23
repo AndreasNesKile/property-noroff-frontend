@@ -2,8 +2,12 @@
 .agent-details {
 	background-color: #006064;
 }
+h1 {
+	color: #ffeb3b;
+}
 h3 {
 	font-family: 'Noto Serif', serif;
+	color: #fff;
 	text-decoration-line: underline;
 	text-decoration-thickness: 3px;
 }
@@ -26,7 +30,7 @@ h3 {
 /* CSS FOR THE TIMELINE */
 .timeline-container {
 	box-sizing: border-box;
-	width: 80wv;
+	/* width: 80vw; */
 	padding-bottom: 10vh;
 }
 
@@ -34,6 +38,9 @@ h3 {
 	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
+}
+.timeline-content h3 {
+	color: #006064;
 }
 /* The actual timeline (the vertical ruler) */
 .timeline::after {

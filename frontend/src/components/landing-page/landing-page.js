@@ -11,11 +11,11 @@ export default class landingpage extends Component {
 	render() {
 		return (
 			<Container className="landing-page-container mt-5">
-				<Card className="text-center landing-card gradient-border">
-					<Card.Header>
+				<Card className="text-center landing-card gradient-border landing-page-card card">
+					<Card.Header className="landing-page-card-header">
 						<img className="img-fluid align-top" src="/property.png" alt="logo" />
 					</Card.Header>
-					<Card.Body>
+					<Card.Body className="landing-page-card-body">
 						<Card.Title>Find your next home</Card.Title>
 						<Link to="/properties">
 							<Button variant="success">Start looking</Button>

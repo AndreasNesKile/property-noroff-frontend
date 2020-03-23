@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GuestDetails from './guest-details/GuestDetails';
 import BuyerDetails from './buyer-details/Buyer-Details';
 import AgentDetails from './agent-details/AgentDetails';
-import QrCode from './QR-code-component/QrCode';
+import QrCode from './QR-code-component/qr-code-desktop/QrCode';
+import MobileQrCode from './QR-code-component/qr-code-mobile/MobileQrCode';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 import { Modal } from 'react-bootstrap';
 
@@ -92,6 +93,7 @@ export default class PropertyDetails extends Component {
 					''
 				)}
 				<QrCode onQrClick={this.ShowQr} />
+				<MobileQrCode onQrClick={this.ShowQr} />
 			</div>
 		);
 	}

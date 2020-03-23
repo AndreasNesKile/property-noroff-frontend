@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Property from './components/Property/Property';
 import PropertyCatalogue from './components/PropertyCatalogue/PropertyCatalogue';
 import UserManagement from './components/UserManagement/UserManagement';
 

@@ -30,6 +30,9 @@
 h2 {
 	font-weight: 700;
 }
+.leaflet-row {
+	color: black;
+}
 .leaflet-map {
 	width: 100%;
 	height: 110%;
@@ -46,11 +49,22 @@ h2 {
 	border-radius: 4rem;
 	border: 2px solid black;
 }
-/* 518 */
-@media only screen and (min-width: 518px) {
+/* 1090 */
+@media only screen and (min-width: 1090px) {
 	.carousel-guest {
-		/* width: 100vw; */
-		transform: scaleX(1.68);
+		transform: scaleX(1.13);
+	}
+}
+/* 1200 */
+@media only screen and (min-width: 1200px) {
+	.carousel-guest {
+		transform: scaleX(1);
+	}
+}
+/* 1270 */
+@media only screen and (min-width: 1270px) {
+	.carousel-guest {
+		transform: scaleX(1.13);
 	}
 }
 /* 987 */
