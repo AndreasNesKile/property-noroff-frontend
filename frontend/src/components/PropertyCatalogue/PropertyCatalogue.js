@@ -6,9 +6,7 @@ import NavigationBar from "../NavigationBar/NavigationBar"
 import axios from 'axios';
 
 //React Bootstrap
-import CardDeck from 'react-bootstrap/CardDeck'
-import Accordion from 'react-bootstrap/Accordion'
-import Button from 'react-bootstrap/Button'
+import CardGroup from 'react-bootstrap/CardGroup'
 
 
 class PropertyCatalogue extends React.Component {
@@ -36,16 +34,22 @@ class PropertyCatalogue extends React.Component {
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview3")]);
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview2")]);
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview1")]);
-      this.state.anyrecents = true;
+      if (this.state.anyrecents === false) {
+        this.setState({ anyrecents: true })
+      }
     } else if(sessionStorage.getItem("Rview2") != null) {
       console.log("did 2")
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview2")]);
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview1")]);
-      this.state.anyrecents = true;
+      if (this.state.anyrecents === false) {
+        this.setState({ anyrecents: true })
+      }
     } else if(sessionStorage.getItem("Rview1") != null) {
       console.log("did 1")
       this.state.recentproperties.push(this.state.properties[sessionStorage.getItem("Rview1")]);
-      this.state.anyrecents = true;
+      if (this.state.anyrecents === false) {
+        this.setState({ anyrecents: true })
+      }
     } else {
     }
   }
@@ -83,9 +87,9 @@ class PropertyCatalogue extends React.Component {
         </div>
 
         <div className={styles.CardDeckContainer}>
-          <CardDeck className={styles.CardDeck} >
+          <CardGroup className={styles.CardDeck} >
             <div className="Properties">{propertycards}</div>
-          </CardDeck>
+          </CardGroup>
         </div>
       </div>
     );

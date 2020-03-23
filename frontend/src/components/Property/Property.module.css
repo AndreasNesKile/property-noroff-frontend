@@ -1,5 +1,30 @@
 .CardContainer {
-    float:left;
-    width: 15em;
-    height: 20em;
+  float: left;
+  width: 20em;
+  height: 17em;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  transition: 0.3s;
+  background-color: whitesmoke;
+}
+
+.CardImg {
+  transition: 0.25s;
+}
+
+.CardImg:hover {
+  width: 110%;
+  margin-left: -5%;
+}
+
+.CardContainer:hover {
+  background-color: lightcyan;
+}
+
+.CardTitle {
+  font-weight: 500;
+}
+
+.Line1 {
+  font-style: italic;
 }
