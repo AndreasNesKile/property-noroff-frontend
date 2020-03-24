@@ -1,7 +1,11 @@
 .CardContainer {
   float: left;
-  width: 20em;
-  height: 17em;
+  /*width: 20em;
+  height: 17em;*/
+  max-width: 18%;
+  min-width: 275px;
+  max-height: 18%;
+  min-height: 260px;
   margin-top: 2vh;
   margin-left: 2vh;
   transition: 0.3s;
@@ -13,8 +17,8 @@
 }
 
 .CardImg:hover {
-  width: 110%;
-  margin-left: -5%;
+  width: 105%;
+  margin-left: -2.5%;
 }
 
 .CardContainer:hover {

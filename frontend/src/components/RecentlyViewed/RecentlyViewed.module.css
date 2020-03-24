@@ -1,5 +1,5 @@
 .CardContainer {
+    max-width: 10vw;
+    min-width: 95px;
     float:left;
-    width: 7.5em;
-    margin-left: 10px;
 }
