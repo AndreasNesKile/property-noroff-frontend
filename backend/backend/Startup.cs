@@ -85,7 +85,7 @@ namespace backend
                 app.UseDeveloperExceptionPage();
             }
             //TODO: Enable https in production
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
