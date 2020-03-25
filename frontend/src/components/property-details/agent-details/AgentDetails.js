@@ -30,7 +30,7 @@ export default class AgentDetails extends Component {
 		return (
 			<section className="text-center mt-2 agent-details">
 				<Container className="mt-5">
-					<h1>Agent Details</h1>
+					<h1 className="agent-heading">Agent Details</h1>
 					<Row className="mt-5">
 						<Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 0 }} className="mt-3">
 							<h3>History of owners</h3>

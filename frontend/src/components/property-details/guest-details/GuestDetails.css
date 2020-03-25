@@ -5,6 +5,7 @@
 	color: #fff;
 	margin: 0;
 	padding: 0;
+	overflow-y: hidden;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {

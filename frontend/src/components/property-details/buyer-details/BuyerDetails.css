@@ -30,9 +30,9 @@
 	}
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 770px) {
 	#buyer-section {
-		margin-top: 15.2vh;
+		margin-top: 7.2vh;
 	}
 	.list-group {
 		font-size: x-small;

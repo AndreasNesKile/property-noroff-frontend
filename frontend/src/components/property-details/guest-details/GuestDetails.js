@@ -53,12 +53,16 @@ export default class GuestDetails extends Component {
 							</Row>
 						</Container>
 						<Col xs={12} className="d-flex justify-content-around dark-bg leaflet-col">
-							<Map center={this.state.position} zoom={19} className="leaflet-map">
+							<Map
+								center={[this.props.property.xCoordinate, this.props.property.yCoordinate]}
+								zoom={19}
+								className="leaflet-map"
+							>
 								<TileLayer
 									url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 									attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 								/>
-								<Marker position={this.state.position}>
+								<Marker position={[this.props.property.xCoordinate, this.props.property.yCoordinate]}>
 									<Popup>
 										{this.props.property.line_1
 											? this.props.property.line_1 + ' ' + this.props.property.line_2
