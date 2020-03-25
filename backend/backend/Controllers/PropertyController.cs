@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
 using backend.DTO;
-using backend.Helpers;
 using backend.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -55,7 +51,7 @@ namespace backend.Controllers
                 property = await _repo.GetAgentProperty(id);
                 if (property == null)
                 {
-                    return NotFound(property);
+                    return NotFound("Property was not found. Invalid house property Id was given.");
                 }
                 else
                 {
@@ -69,7 +65,7 @@ namespace backend.Controllers
                 property = await _repo.GetBuyerProperty(id);
                 if (property == null)
                 {
-                    return NotFound(property);
+                    return NotFound("Property was not found. Invalid house property Id was given.");
                 }
                 else
                 {

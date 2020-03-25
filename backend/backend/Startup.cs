@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -20,6 +21,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace backend
 {
@@ -95,9 +97,21 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
-            //TODO: Enable https in production
-            app.UseHttpsRedirection();
+            else
+            {
+                app.UseExceptionHandler(a => a.Run(async context =>
+                {
+                    var feature = context.Features.Get<IExceptionHandlerPathFeature>();
+                    var exception = feature.Error;
 
+                    var result = JsonConvert.SerializeObject(new { error = exception.Message });
+                    context.Response.ContentType = "application/json";
+                    await context.Response.WriteAsync(result);
+                }));
+
+            }
+            app.UseHttpsRedirection();
+          
             app.UseRouting();
 
             app.UseCors(_corsOrigin);

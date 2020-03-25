@@ -16,23 +16,12 @@ namespace backend.Data
         
         public async Task<Account> GetAccount(string accountId)
         {
-            var result = await _context.Accounts.Where(account => account.Id == accountId).Include(t => t.AccountType).FirstOrDefaultAsync();
-
-            if(result != null)
-            {
-                return result;
-            } else
-            {
-                return null;
-            }
-          
+            return await _context.Accounts.Where(account => account.Id == accountId).Include(t => t.AccountType).FirstOrDefaultAsync();
         }
 
         public async Task<Account> GetAccountByEmail(string email)
         {
-            var result = await _context.Accounts.Where(account => account.Email == email).Include(x => x.AccountType).FirstOrDefaultAsync();
-
-            return result;
+            return await _context.Accounts.Where(account => account.Email == email).Include(x => x.AccountType).FirstOrDefaultAsync();
         }
 
         public async Task<Account> CreateAccount(Account account)
@@ -45,9 +34,7 @@ namespace backend.Data
 
         public async Task<AccountType> GetAccountTypeByName(string accountTypeName)
         {
-            var result = await _context.AccountTypes.Where(x => x.Name == accountTypeName).FirstOrDefaultAsync();
-
-            return result;
+            return await _context.AccountTypes.Where(x => x.Name == accountTypeName).FirstOrDefaultAsync();
         }
 
         public async Task<bool> SaveAll()
