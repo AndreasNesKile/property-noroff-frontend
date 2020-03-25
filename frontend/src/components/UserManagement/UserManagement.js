@@ -9,26 +9,18 @@ class UserManagement extends React.Component {
 
   render() {
     return (
-      <div>
-        <Form className={styles.FormContainer}>
+      <div className={styles.FormContainer}>
+        <h1>Account details</h1>
+        <Form >
           <Form.Group>
             <Form.Label>First name</Form.Label>
-            <Form.Control type="text" placeholder="Normal text" />
+            <Form.Control type="text" placeholder="First name" />
             <Form.Label>Last name</Form.Label>
-            <Form.Control type="text" placeholder="Normal text" />
+            <Form.Control type="text" placeholder="Last name" />
             <Form.Label>Phone number</Form.Label>
-            <Form.Control type="text" placeholder="Normal text" />
+            <Form.Control type="text" placeholder="Phone number" />
             {/* TODO: Add date of birth changeythingy */}
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Example@Email.com" />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="Password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit">Save changes</Button>
         </Form>
       </div>
     );
