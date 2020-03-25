@@ -73,7 +73,7 @@ class PropertyCatalogue extends React.Component {
     return (
       <div className={styles.CatalogueContainer}>
         <NavigationBar />
-  
+
         <div className={styles.RecentlyViewedContainer}>
           <div className={styles.RecentlyViewed}>
             {renderRecentTitle ? (
@@ -81,13 +81,12 @@ class PropertyCatalogue extends React.Component {
             ) : (
               <div></div>
             )}
-            
             <div className="RecentlyViewed">{recentlyviewed.reverse()}</div>
           </div>
         </div>
 
         <div className={styles.CardDeckContainer}>
-          <CardGroup className={styles.CardDeck} >
+          <CardGroup className={styles.CardGroup} >
             <div className="Properties">{propertycards}</div>
           </CardGroup>
         </div>
