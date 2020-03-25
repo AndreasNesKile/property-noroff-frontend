@@ -3,15 +3,25 @@
 	margin-bottom: 1px;
 	border-radius: 0;
 }
+.buyer-heading {
+	color: #ffeb3b;
+}
 .buyer-details-row {
 	margin: 0;
 }
 #buyer-section {
 	margin-top: 2vh;
+	margin: 0;
 }
 @media only screen and (max-width: 991px) {
 	.list-group {
 		font-size: 0.6rem;
+	}
+}
+@media only screen and (max-width: 576px) {
+	.builded-col {
+		margin-top: 0.3rem;
+		margin-bottom: 0;
 	}
 }
 @media only screen and (orientation: landscape) and (max-device-width: 850px) {
@@ -19,9 +29,10 @@
 		margin-top: 25vh;
 	}
 }
-@media only screen and (max-width: 575px) {
+
+@media only screen and (max-width: 770px) {
 	#buyer-section {
-		margin-top: 15.2vh;
+		margin-top: 7.2vh;
 	}
 	.list-group {
 		font-size: x-small;

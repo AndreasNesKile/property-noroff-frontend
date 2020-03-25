@@ -1,3 +1,20 @@
 .container-app {
-	background-color: steelblue;
+	background-color: #00838f;
+}
+.modal.show .modal-dialog {
+	-webkit-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	top: 50%;
+	margin: 0 auto;
+}
+.modal-dialog {
+	width: 60vw;
+	height: 50vh;
+}
+@media only screen and (max-width: 576px) {
+	.modal-dialog {
+		width: 80vw;
+		height: 50vh;
+	}
 }

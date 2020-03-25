@@ -28,11 +28,11 @@ export default class AgentDetails extends Component {
 
 	render() {
 		return (
-			<section className="border border-darken-4 text-center mt-2">
+			<section className="text-center mt-2 agent-details">
 				<Container className="mt-5">
-					<h1>Agent Details</h1>
+					<h1 className="agent-heading">Agent Details</h1>
 					<Row className="mt-5">
-						<Col xs={{ span: 8, offset: 2 }} sm={{ span: 5, offset: 1 }} className="mt-3">
+						<Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 0 }} className="mt-3">
 							<h3>History of owners</h3>
 							<ListGroup>
 								{this.props.property.ownershipLogs.length > 0 ? (
@@ -49,35 +49,35 @@ export default class AgentDetails extends Component {
 								)}
 							</ListGroup>
 						</Col>
-						<Col xs={{ span: 8, offset: 2 }} sm={{ span: 5, offset: 0 }} className="mt-3">
+						<Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 0 }} className="mt-3">
 							<h3>Current Owner:</h3>
 							{this.props.property.currentOwner ? (
 								<ListGroup>
 									<ListGroupItem className=" d-flex justify-content-between">
-										<i>Name:</i>
-										<b>
+										<b>Name:</b>
+										<i>
 											{this.props.property.currentOwner.name
 												? this.props.property.currentOwner.name +
 												  ' ' +
 												  this.props.property.currentOwner.surname
 												: 'No name available'}
-										</b>
+										</i>
 									</ListGroupItem>
 									<ListGroupItem className=" d-flex justify-content-between">
-										<i>Phone-number:</i>
-										<b>
+										<b>Phone-number:</b>
+										<i>
 											{this.props.property.currentOwner.phone
 												? this.props.property.currentOwner.phone
 												: 'No number available'}
-										</b>
+										</i>
 									</ListGroupItem>
 									<ListGroupItem className=" d-flex justify-content-between">
-										<i>E-mail:</i>
-										<b>
+										<b>E-mail:</b>
+										<i>
 											{this.props.property.currentOwner.email
 												? this.props.property.currentOwner.email
 												: 'No email available'}
-										</b>
+										</i>
 									</ListGroupItem>
 								</ListGroup>
 							) : (

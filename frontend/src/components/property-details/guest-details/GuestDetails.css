@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 .guest-details {
 	font-family: 'Nunito', sans-serif;
+	background-color: #006064;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
@@ -9,10 +14,16 @@
 	width: 2.2rem;
 	height: 2.2rem;
 }
+.guest-info-container {
+	background-color: #26c6da;
+}
 .type-style {
 	font-weight: 700;
 	color: rgb(61, 61, 61);
 	text-decoration-line: none !important;
+}
+.img-carousel {
+	object-fit: fill;
 }
 .btn {
 	text-decoration: none;
@@ -20,13 +31,16 @@
 h2 {
 	font-weight: 700;
 }
+.leaflet-row {
+	color: black;
+}
 .leaflet-map {
-	width: 98.5%;
-	height: 100%;
-	border-radius: 5%;
+	width: 100%;
+	height: 110%;
+	/* border-radius: 5%; */
 }
 .leaflet-col {
-	min-height: 50vh;
+	min-height: 40vh;
 	padding: 0;
 }
 
@@ -36,7 +50,24 @@ h2 {
 	border-radius: 4rem;
 	border: 2px solid black;
 }
-
+/* 1090 */
+@media only screen and (min-width: 1090px) {
+	.carousel-guest {
+		transform: scaleX(1.13);
+	}
+}
+/* 1200 */
+@media only screen and (min-width: 1200px) {
+	.carousel-guest {
+		transform: scaleX(1);
+	}
+}
+/* 1270 */
+@media only screen and (min-width: 1270px) {
+	.carousel-guest {
+		transform: scaleX(1.13);
+	}
+}
 /* 987 */
 @media only screen and (max-width: 991px) {
 	#canvas {

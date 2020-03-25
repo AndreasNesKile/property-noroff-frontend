@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GuestDetails from './guest-details/GuestDetails';
 import BuyerDetails from './buyer-details/Buyer-Details';
 import AgentDetails from './agent-details/AgentDetails';
-import QrCode from './QR-code-component/QrCode';
+import QrCode from './QR-code-component/qr-code-desktop/QrCode';
+import MobileQrCode from './QR-code-component/qr-code-mobile/MobileQrCode';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 import { Modal } from 'react-bootstrap';
 
@@ -24,16 +25,14 @@ export default class PropertyDetails extends Component {
 	};
 
 	async componentDidMount() {
-		if (sessionStorage.getItem('token')) {
-			let Api_Url = `http://localhost:5000/api/properties/${this.props.match.params.id}`;
-			try {
-				await axios.get(Api_Url, this.state.config).then((res) => {
-					this.setState({ property: res.data });
-					console.log(this.state.property);
-				});
-			} catch (e) {
-				console.log(e);
-			}
+		let Api_Url = `http://localhost:5000/api/properties/${this.props.match.params.id}`;
+		try {
+			await axios.get(Api_Url, this.state.config ? this.state.config : '').then((res) => {
+				this.setState({ property: res.data });
+				console.log(this.state.property);
+			});
+		} catch (e) {
+			console.log(e);
 		}
 	}
 	ShowQr = () => {
@@ -47,24 +46,17 @@ export default class PropertyDetails extends Component {
 					if (error) console.error(error);
 				});
 			}
-		}, 3000);
+		}, 1200);
 	};
 	toggleQr = () => {
 		const toggledQr = !this.state.showQrCode;
 		this.setState({ showQrCode: toggledQr });
 	};
 	render() {
-		console.log(this.props);
 		return (
 			<div className="container-app">
 				<LoadingSpinner loading={this.state.loading} />
-				<Modal
-					show={this.state.showQrCode}
-					className="text-center modal-size"
-					// onClick={this.toggleQr}
-					onHide={this.toggleQr}
-					size="lg"
-				>
+				<Modal show={this.state.showQrCode} className="text-center modal-size" onHide={this.toggleQr}>
 					<Modal.Header className="d-flex justify-content-around">
 						<Modal.Title>Qr-code for sharing this page</Modal.Title>
 					</Modal.Header>
@@ -92,6 +84,7 @@ export default class PropertyDetails extends Component {
 					''
 				)}
 				<QrCode onQrClick={this.ShowQr} />
+				<MobileQrCode onQrClick={this.ShowQr} />
 			</div>
 		);
 	}

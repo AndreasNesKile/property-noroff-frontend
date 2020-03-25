@@ -14,7 +14,7 @@ const NavigationBar = () => {
 			<Navbar bg="light" fixed="top" className={styles.navbar}>
 				<Link to="/properties">
 					<Navbar.Brand>
-						<img width="60" className="d-inline-block align-top" src="/property.png" alt="logo" />
+						<img width="100" className="d-inline-block align-top" src="/property-navbar.png" alt="logo" />
 					</Navbar.Brand>
 				</Link>
 				<Nav className="mr-auto">

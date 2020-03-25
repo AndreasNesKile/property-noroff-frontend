@@ -4,7 +4,7 @@ import './QrCode.css';
 export default class QrCode extends Component {
 	render() {
 		return (
-			<div className="qr-code">
+			<div className="qr-code desktop-only">
 				<Button variant="info" onClick={this.props.onQrClick}>
 					Show Qr-Code
 				</Button>
