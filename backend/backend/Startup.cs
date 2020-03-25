@@ -58,7 +58,7 @@ namespace backend
                 options.AddPolicy("RequireBuyerRole", policy => policy.RequireClaim("https://property.com/roles", "Buyer"));
                 options.AddPolicy("RequireAgentRole", policy => policy.RequireClaim("https://property.com/roles", "Agent"));
             });
-            services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString(Environment.GetEnvironmentVariable("WebApiDatabase"))));
+            services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddAutoMapper(typeof(PropertyRepository).Assembly, typeof(AccountRepository).Assembly);
             services.AddScoped<IPropertyRepository, PropertyRepository>();
