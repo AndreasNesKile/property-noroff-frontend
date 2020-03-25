@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using backend.Data;
@@ -39,27 +40,38 @@ namespace backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // Sets the authentication scheme for the application, JwtBearer is used here.
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
+                // Authority is the issuer of the token
+                // Audience is the intended recipient of the token (this application)
+
                 options.Authority = Configuration.GetSection("AuthApi").GetSection("Domain").Value;
-                //options.Audience = Configuration.GetSection("AuthApi").GetSection("Identifier").Value;
-                options.Audience = Configuration.GetSection("AuthApi").GetSection("TestIdentifier").Value;
+                options.Audience = Configuration.GetSection("AuthApi").GetSection("Identifier").Value;
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    NameClaimType = "Roles",
+                    // Sets the role claim to the specified claim in the token. 
+                    // Used to authorized users. 
                     RoleClaimType = "https://property.com/roles"
                 };
             });
+
+            // Adds Policy-based authorization.
+            // Adds policies requiring the user to have a role claim with a valid value
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("RequireBuyerRole", policy => policy.RequireClaim("https://property.com/roles", "Buyer"));
                 options.AddPolicy("RequireAgentRole", policy => policy.RequireClaim("https://property.com/roles", "Agent"));
             });
+
             services.AddDbContext<PropertyDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers();
             services.AddAutoMapper(typeof(PropertyRepository).Assembly, typeof(AccountRepository).Assembly);
             services.AddScoped<IPropertyRepository, PropertyRepository>();
@@ -98,8 +110,8 @@ namespace backend
                 }));
 
             }
-            //TODO: Enable https in production
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
+          
             app.UseRouting();
 
             app.UseCors(_corsOrigin);

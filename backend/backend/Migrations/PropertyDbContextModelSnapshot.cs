@@ -21,10 +21,8 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Models.Account", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccountTypeId")
                         .HasColumnType("int");
@@ -177,7 +175,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Line_1")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("Line_2")
                         .HasColumnType("nvarchar(30)");
@@ -188,7 +186,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(160)");
 
                     b.Property<int>("PropertyStatusId")
                         .HasColumnType("int");
@@ -199,9 +197,15 @@ namespace backend.Migrations
                     b.Property<int>("Value")
                         .HasColumnType("int");
 
+                    b.Property<string>("XCoordinate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YCoordinate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ZipCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(8)");
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("Id");
 

@@ -1,48 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
-.container-fluid {
-	height: 100vh;
-	width: 90vw;
-	padding: 0rem;
+.landing-page-container {
+	background: url('../../assets/background-landingpage.jpg') no-repeat;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
 }
-.wrapper {
-	box-shadow: 1px 1px 0.7rem #043670a9;
-	padding-bottom: 1rem;
-	margin: 0 auto;
+.landing-card {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
 }
-.login {
-	margin: 4rem;
-	margin-top: 0rem;
-	padding-top: 0rem;
-	line-height: 1;
+.card {
+	border: 1px solid rgba(23, 130, 172);
+	opacity: 0.98;
 }
-.login-input {
-	border: 1px solid #043670a9;
+.card-header {
+	color: rgba(23, 130, 172);
+	background-color: rgb(255, 255, 255);
 }
-.login-label {
-	font-family: 'Nunito', sans-serif;
-	font-weight: 600;
-	padding: 1rem;
-	text-align: left;
+.card-body {
+	color: #fff;
+	opacity: 0.95;
+	background-color: rgba(23, 130, 172);
 }
-.login-form-group {
-	padding: 1rem;
-	padding-bottom: 0rem;
-	text-align: left;
-}
-.img-fluid {
-	max-width: 50%;
-}
-.login-button-group {
-	padding: 1rem 1rem 1rem 0rem;
-}
-.guest-button,
-.login-button {
-	min-width: 9.8rem;
+.card-footer {
+	color: #fff;
+	background-color: rgba(23, 130, 172);
 }
 
-@media only screen and (max-width: 767px) {
-	.guest-button,
-	.login-button {
-		margin: 0.5rem;
+/* Animation to border beneath */
+.gradient-border {
+	--borderWidth: 5px;
+	border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+	content: '';
+	position: absolute;
+	top: calc(-6 * var(--borderWidth));
+	left: calc(-6 * var(--borderWidth));
+	height: calc(100% + var(--borderWidth) * 12);
+	width: calc(100% + var(--borderWidth) * 12);
+	background: linear-gradient(60deg, rgb(23, 130, 172), #fff, rgba(23, 130, 172));
+	border-radius: calc(2 * var(--borderWidth));
+	z-index: -1;
+	animation: animatedgradient 9s ease alternate infinite;
+	background-size: 300% 300%;
+}
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
 	}
 }
+/* Animation end */

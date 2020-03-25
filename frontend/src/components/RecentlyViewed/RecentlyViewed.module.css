@@ -1,0 +1,11 @@
+.CardContainer {
+    max-width: 10vw;
+    min-width: 95px;
+    float:left;
+    transition: 0.2s;
+}
+
+.CardContainer:hover {
+    padding: 1%;
+    border: 1px red solid;
+}

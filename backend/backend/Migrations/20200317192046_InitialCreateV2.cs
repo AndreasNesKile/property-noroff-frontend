@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace backend.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class InitialCreateV2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,25 +18,6 @@ namespace backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AccountTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Owners",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(20)", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
-                    DNumber = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Owners", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,10 +63,9 @@ namespace backend.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(40)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     Active = table.Column<bool>(nullable: false),
@@ -98,6 +78,32 @@ namespace backend.Migrations
                         name: "FK_Accounts_AccountTypes_AccountTypeId",
                         column: x => x.AccountTypeId,
                         principalTable: "AccountTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Owners",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(30)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(40)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    DNumber = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    OwnerTypeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Owners", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Owners_OwnerTypes_OwnerTypeId",
+                        column: x => x.OwnerTypeId,
+                        principalTable: "OwnerTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -144,7 +150,7 @@ namespace backend.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateAcquired = table.Column<DateTime>(nullable: false),
-                    DateSold = table.Column<DateTime>(nullable: false),
+                    DateSold = table.Column<DateTime>(nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     PropertyId = table.Column<int>(nullable: false),
                     OwnerId = table.Column<int>(nullable: false)
@@ -167,19 +173,20 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProperyImages",
+                name: "PropertyImages",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Url = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    Caption = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     PropertyId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProperyImages", x => x.Id);
+                    table.PrimaryKey("PK_PropertyImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProperyImages_Properties_PropertyId",
+                        name: "FK_PropertyImages_Properties_PropertyId",
                         column: x => x.PropertyId,
                         principalTable: "Properties",
                         principalColumn: "Id",
@@ -236,6 +243,11 @@ namespace backend.Migrations
                 column: "AccountTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Owners_OwnerTypeId",
+                table: "Owners",
+                column: "OwnerTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OwnershipLogs_OwnerId",
                 table: "OwnershipLogs",
                 column: "OwnerId");
@@ -256,8 +268,8 @@ namespace backend.Migrations
                 column: "PropertyTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProperyImages_PropertyId",
-                table: "ProperyImages",
+                name: "IX_PropertyImages_PropertyId",
+                table: "PropertyImages",
                 column: "PropertyId");
 
             migrationBuilder.CreateIndex(
@@ -280,10 +292,7 @@ namespace backend.Migrations
                 name: "OwnershipLogs");
 
             migrationBuilder.DropTable(
-                name: "OwnerTypes");
-
-            migrationBuilder.DropTable(
-                name: "ProperyImages");
+                name: "PropertyImages");
 
             migrationBuilder.DropTable(
                 name: "Renovations");
@@ -299,6 +308,9 @@ namespace backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Properties");
+
+            migrationBuilder.DropTable(
+                name: "OwnerTypes");
 
             migrationBuilder.DropTable(
                 name: "PropertyStatuses");

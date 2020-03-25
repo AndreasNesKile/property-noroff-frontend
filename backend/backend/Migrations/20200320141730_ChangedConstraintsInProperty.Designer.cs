@@ -10,8 +10,8 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(PropertyDbContext))]
-    [Migration("20200310142648_SetOwnerEmailToLength40")]
-    partial class SetOwnerEmailToLength40
+    [Migration("20200320141730_ChangedConstraintsInProperty")]
+    partial class ChangedConstraintsInProperty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,8 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Models.Account", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccountTypeId")
                         .HasColumnType("int");
@@ -42,11 +40,9 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
@@ -96,6 +92,9 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<int>("OwnerTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
@@ -105,6 +104,8 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerTypeId");
 
                     b.ToTable("Owners");
                 });
@@ -138,7 +139,7 @@ namespace backend.Migrations
                     b.Property<DateTime>("DateAcquired")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateSold")
+                    b.Property<DateTime?>("DateSold")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("OwnerId")
@@ -176,7 +177,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Line_1")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("Line_2")
                         .HasColumnType("nvarchar(30)");
@@ -187,7 +188,7 @@ namespace backend.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(160)");
 
                     b.Property<int>("PropertyStatusId")
                         .HasColumnType("int");
@@ -198,9 +199,15 @@ namespace backend.Migrations
                     b.Property<int>("Value")
                         .HasColumnType("int");
 
+                    b.Property<string>("XCoordinate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YCoordinate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ZipCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(8)");
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("Id");
 
@@ -217,6 +224,9 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Caption")
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int>("PropertyId")
                         .HasColumnType("int");
@@ -321,6 +331,15 @@ namespace backend.Migrations
                     b.HasOne("backend.Models.AccountType", "AccountType")
                         .WithMany()
                         .HasForeignKey("AccountTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("backend.Models.Owner", b =>
+                {
+                    b.HasOne("backend.Models.OwnerType", "OwnerType")
+                        .WithMany()
+                        .HasForeignKey("OwnerTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

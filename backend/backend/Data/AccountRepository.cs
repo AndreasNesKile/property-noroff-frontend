@@ -13,8 +13,8 @@ namespace backend.Data
         {
             _context = context;
         }
-
-        public async Task<Account> GetAccount(int accountId)
+        
+        public async Task<Account> GetAccount(string accountId)
         {
             return await _context.Accounts.Where(account => account.Id == accountId).Include(t => t.AccountType).FirstOrDefaultAsync();
         }

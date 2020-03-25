@@ -15,6 +15,8 @@ namespace backend.DTO
         public string City { get; set; }
         public string Country { get; set; }
         public string ZipCode { get; set; }
+        public string XCoordinate { get; set; }
+        public string YCoordinate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastRenovated { get; set; }
         public List<PropertyImageDTO> PropertyImages { get; set; }
