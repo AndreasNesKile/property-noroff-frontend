@@ -62,6 +62,7 @@ class UserManagement extends React.Component {
 						/>
 						<Form.Label>Email</Form.Label>
 						<Form.Control
+							style={{ color: 'gray' }}
 							type="text"
 							disabled={true}
 							placeholder="Email"
@@ -69,6 +70,7 @@ class UserManagement extends React.Component {
 						/>
 						<Form.Label>Date of Birth</Form.Label>
 						<Form.Control
+							style={{ color: 'gray' }}
 							type="text"
 							placeholder="Date of birth"
 							disabled={true}
