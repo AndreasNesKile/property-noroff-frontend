@@ -36,10 +36,11 @@ function Property(props) {
 
     return (
         <Link to={`Properties/${props.data.id}`}>
-            <Card border="light" text="dark" onClick={handleClick} className={styles.CardContainer} >
+            <Card text="dark" onClick={handleClick} className={styles.CardContainer} >
+                
                 <Card.Body>
-                <Card.Title className={styles.CardTitle}>{props.data.city}</Card.Title>
                 <Card.Img className={styles.CardImg} variant="top" src={cardImage + ".jpg"} />
+                    <Card.Title className={styles.CardTitle}>{props.data.city}</Card.Title>
                     <Card.Text className={styles.Line1}>{props.data.line_1}</Card.Text>
                 </Card.Body>
             </Card>
