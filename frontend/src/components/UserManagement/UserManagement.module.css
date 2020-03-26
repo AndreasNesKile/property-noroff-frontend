@@ -1,17 +1,19 @@
 .FormContainer {
-    width: 30em;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 25px;
-    text-align: center;
-    padding: 2em;
+	background-color: #006064;
+	color: #fff;
+	width: 30em;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid black;
+	border-radius: 25px;
+	text-align: center;
+	padding: 2em;
 }
 
 @media only screen and (max-width: 600px) {
-    .FormContainer{
-        width: 20em;
-    }
-  }
+	.FormContainer {
+		width: 20em;
+	}
+}
