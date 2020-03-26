@@ -22,13 +22,15 @@ const NavigationBar = () => {
 						<Nav>Home</Nav>
 					</Link>
 				</Nav>
-				<Nav className="mr-sm-2">
-					<Link to="/profile">
-						<Nav>
-							<img width="25" className="d-inline-block align-top" src="/user.png" alt="profile" />
-						</Nav>
-					</Link>
-				</Nav>
+				{isAuthenticated && (
+					<Nav className="mr-sm-2">
+						<Link to="/profile">
+							<Nav>
+								<img width="25" className="d-inline-block align-top" src="/user.png" alt="profile" />
+							</Nav>
+						</Link>
+					</Nav>
+				)}
 				<Nav>
 					<div>
 						{!isAuthenticated && <button onClick={() => loginWithRedirect({})}>Log in</button>}

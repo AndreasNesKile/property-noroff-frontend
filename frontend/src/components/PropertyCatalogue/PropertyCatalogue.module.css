@@ -1,24 +1,25 @@
 .CatalogueContainer {
-  text-align: center;
-  height: 100vh;
+	text-align: center;
+	height: 100vh;
+	background-color: #00838f;
 }
 
 .RecentlyViewedContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .CardDeckContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .CardGroup {
-  width: 90%;
-  justify-content: center;
+	width: 90%;
+	justify-content: center;
 }
 
 .RecentlyViewed {
-  margin-top: 10vh;
-  justify-content: center;
+	margin-top: 10vh;
+	justify-content: center;
 }
