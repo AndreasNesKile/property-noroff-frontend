@@ -19,7 +19,9 @@ const NavigationBar = () => {
 				</Link>
 				<Nav className="mr-auto">
 					<Link to="/properties">
-						<Nav>Home</Nav>
+						<Nav>
+							<span className={styles.navButton}>Home</span>
+						</Nav>
 					</Link>
 				</Nav>
 				{isAuthenticated && (

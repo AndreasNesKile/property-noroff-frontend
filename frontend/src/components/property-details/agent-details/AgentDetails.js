@@ -100,15 +100,23 @@ export default class AgentDetails extends Component {
 								</ListGroupItem>
 							</ListGroup>
 						</Col>
-						<Col xs={{ span: 10, offset: 1 }}>
-							<h3 className="mt-5">Renovation History:</h3>
-							<Container className="timeline-container">
-								<div className="timeline">
-									<div className="timeline-left timeline-child-container" id="left-timeline"></div>
-									<div className="timeline-right timeline-child-container" id="right-timeline"></div>
-								</div>
-							</Container>
-						</Col>
+						{this.props.property.renovations.length > 0 && (
+							<Col xs={{ span: 10, offset: 1 }}>
+								<h3 className="mt-5">Renovation History:</h3>
+								<Container className="timeline-container">
+									<div className="timeline">
+										<div
+											className="timeline-left timeline-child-container"
+											id="left-timeline"
+										></div>
+										<div
+											className="timeline-right timeline-child-container"
+											id="right-timeline"
+										></div>
+									</div>
+								</Container>
+							</Col>
+						)}
 					</Row>
 				</Container>
 			</section>
