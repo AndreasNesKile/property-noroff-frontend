@@ -1,6 +1,11 @@
+body {
+  background-color: #00838F;
+}
+
 .CatalogueContainer {
   text-align: center;
   height: 100vh;
+  color: white;
 }
 
 .RecentlyViewedContainer {

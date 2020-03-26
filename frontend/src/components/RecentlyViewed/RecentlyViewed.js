@@ -3,8 +3,6 @@ import styles from "./RecentlyViewed.module.css";
 import { Link } from "react-router-dom"
 //React Bootstrap
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Renderer } from "leaflet";
 
 function RecentlyViewed(props) {
     let cardImage = null
