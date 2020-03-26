@@ -1,29 +1,29 @@
 body {
-  background-color: #00838F;
+	background-color: #00838f;
 }
 
 .CatalogueContainer {
-  text-align: center;
-  height: 100vh;
-  color: white;
+	text-align: center;
+	height: 100vh;
+	color: white;
 }
 
 .RecentlyViewedContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .CardDeckContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .CardGroup {
-  width: 90%;
-  justify-content: center;
+	width: 90%;
+	justify-content: center;
 }
 
 .RecentlyViewed {
-  margin-top: 10vh;
-  justify-content: center;
+	margin-top: 10vh;
+	justify-content: center;
 }
