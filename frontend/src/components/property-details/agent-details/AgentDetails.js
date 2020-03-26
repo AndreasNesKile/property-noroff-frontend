@@ -90,16 +90,6 @@ export default class AgentDetails extends Component {
 						</Col>
 					</Row>
 					<Row className="mt-5">
-						<Col xs={{ span: 10, offset: 1 }}>
-							<h3>Property value:</h3>
-							<ListGroup>
-								<ListGroupItem className=" d-flex justify-content-around align-items-center valuebox rounded-0">
-									<b>
-										{this.props.property.value ? '$ ' + this.props.property.value + '.00' : 'N/A'}
-									</b>
-								</ListGroupItem>
-							</ListGroup>
-						</Col>
 						{this.props.property.renovations.length > 0 && (
 							<Col xs={{ span: 10, offset: 1 }}>
 								<h3 className="mt-5">Renovation History:</h3>

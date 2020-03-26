@@ -11,12 +11,6 @@ h3 {
 	text-decoration-line: underline;
 	text-decoration-thickness: 3px;
 }
-.valuebox {
-	border: 2px solid rgb(34, 255, 5);
-	box-shadow: 1px 1px 0.7rem rgb(2, 58, 9);
-	border-radius: 4rem;
-	font-size: 1.1rem;
-}
 .renovation-card {
 	padding: 2rem;
 	background-color: #fff;

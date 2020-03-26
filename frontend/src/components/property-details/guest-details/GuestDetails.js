@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Carousel, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './GuestDetails.css';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
@@ -12,7 +12,7 @@ export default class GuestDetails extends Component {
 	render() {
 		return (
 			<section className="guest-details text-center  pb-5">
-				<Container className="mt-5 carousel-container container-fluid">
+				<Container className="mt-5 carousel-container container-fluid mb-3">
 					<Row>
 						<Col className="m-0 p-0">
 							<Carousel className="carousel-guest" id="carousel">
@@ -22,7 +22,6 @@ export default class GuestDetails extends Component {
 											src={img.url}
 											className="img-carousel embed-responsive"
 											alt={img.caption}
-											// style={{ maxHeight: '720px' }}
 										/>
 										<Carousel.Caption>
 											<h4>{img.caption}</h4>
@@ -31,6 +30,20 @@ export default class GuestDetails extends Component {
 								))}
 							</Carousel>
 							<h2 className="pt-4">{this.props.property.name ? this.props.property.name : ''}</h2>
+						</Col>
+					</Row>
+				</Container>
+				<Container>
+					<Row>
+						<Col xs={{ span: 10, offset: 1 }}>
+							<h3>Property value:</h3>
+							<ListGroup>
+								<ListGroupItem className=" d-flex justify-content-around align-items-center valuebox rounded-0">
+									<b>
+										{this.props.property.value ? '$ ' + this.props.property.value + '.00' : 'N/A'}
+									</b>
+								</ListGroupItem>
+							</ListGroup>
 						</Col>
 					</Row>
 				</Container>
