@@ -20,7 +20,6 @@ class PropertyCatalogue extends React.Component {
 		try {
 			await axios.get(Api_Url).then((res) => {
 				this.setState({ properties: res.data });
-				console.log(this.state.properties);
 			});
 		} catch (e) {
 			console.log(e);

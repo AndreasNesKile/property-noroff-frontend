@@ -29,7 +29,6 @@ export default class PropertyDetails extends Component {
 		try {
 			await axios.get(Api_Url, this.state.config ? this.state.config : '').then((res) => {
 				this.setState({ property: res.data });
-				console.log(this.state.property);
 			});
 		} catch (e) {
 			console.log(e);
