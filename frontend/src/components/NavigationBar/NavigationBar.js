@@ -1,28 +1,33 @@
 import React from 'react';
 import styles from './NavigationBar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth0 } from '../../react-auth0-spa.js';
 
 //React Bootstrap
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-const NavigationBar = () => {
+const NavigationBar = (props) => {
 	const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+	const isCatalogue =
+		window.location.href.toLowerCase().endsWith('/properties') ||
+		window.location.href.toLowerCase().endsWith('/properties/')
+			? true
+			: false;
 
 	return (
 		<div className={styles.NavContainer}>
 			<Navbar bg="light" fixed="top" className={styles.navbar}>
-				<Link to="/properties">
+				<NavLink to="/properties" className={isCatalogue ? 'disableOnActive' : ''}>
 					<Navbar.Brand>
 						<img width="100" className="d-inline-block align-top" src="/property-navbar.png" alt="logo" />
 					</Navbar.Brand>
-				</Link>
+				</NavLink>
 				<Nav className="mr-auto">
-					<Link to="/properties">
+					<NavLink to="/properties" className={isCatalogue ? 'disableOnActive' : ''}>
 						<Nav>
 							<span className={styles.navButton}>Home</span>
 						</Nav>
-					</Link>
+					</NavLink>
 				</Nav>
 				{isAuthenticated && (
 					<Nav className="mr-sm-2">
