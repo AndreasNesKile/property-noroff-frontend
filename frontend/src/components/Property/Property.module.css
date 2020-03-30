@@ -1,35 +1,41 @@
 .CardContainer {
-  float: left;
-  max-width: 18%;
-  min-width: 275px;
-  max-height: 18%;
-  min-height: 260px;
-  margin-top: 2vh;
-  margin-left: 2vh;
-  transition: 0.3s;
-  background-color: #00ACC1;
-  
+	float: left;
+	max-width: 18%;
+	min-width: 275px;
+	max-height: 18%;
+	min-height: 311px;
+	margin-top: 2vh;
+	margin-left: 2vh;
+	transition: 0.3s;
+	background-color: #00acc1;
 }
 
 .CardImg {
-  transition: 0.25s;
+	transition: 0.25s;
 }
 
 .CardImg:hover {
-  width: 104%;
-  margin-left: -2%;
+	width: 104%;
+	margin-left: -2%;
 }
 
 .CardContainer:hover {
-  background-color: #80DEEA;
+	background-color: #80deea;
 }
 
 .CardTitle {
-  font-weight: 500;
-  color: white;
+	font-weight: 500;
+	color: white;
+}
+.CardFooter {
+	border-bottom: 1px solid rgb(61, 214, 235);
+	font-size: large;
+	font-weight: 500;
+	color: whitesmoke;
+	text-shadow: 1px 1px #201f1f;
 }
 
 .Line1 {
-  font-style: italic;
-  color: white;
+	font-style: italic;
+	color: white;
 }
