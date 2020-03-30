@@ -29,7 +29,6 @@ class PropertyCatalogue extends React.Component {
 
 	SetRecentlyViewed() {
 		if (sessionStorage.getItem('Rview3') != null) {
-			console.log('did 3');
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview3')]);
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview2')]);
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview1')]);
@@ -37,14 +36,12 @@ class PropertyCatalogue extends React.Component {
 				this.setState({ anyrecents: true });
 			}
 		} else if (sessionStorage.getItem('Rview2') != null) {
-			console.log('did 2');
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview2')]);
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview1')]);
 			if (this.state.anyrecents === false) {
 				this.setState({ anyrecents: true });
 			}
 		} else if (sessionStorage.getItem('Rview1') != null) {
-			console.log('did 1');
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview1')]);
 			if (this.state.anyrecents === false) {
 				this.setState({ anyrecents: true });
