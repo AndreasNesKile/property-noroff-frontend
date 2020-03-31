@@ -57,7 +57,7 @@ $ NODE_ENV=production node app
 ### Docker
 
 Instructions on how to run the frontend in a docker container.
-First install docker on your computer, then open powershell and navigate to the frontend folder ...\property-noroff-project\frontend 
+First install docker on your computer, then open powershell and navigate to the frontend folder ...\property-noroff-project\frontend. 
 Type in the following:
 
 ```sh
