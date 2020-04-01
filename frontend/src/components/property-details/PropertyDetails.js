@@ -31,7 +31,7 @@ export default class PropertyDetails extends Component {
 		},
 		out: {
 			opacity: 0,
-			x: '40%'
+			x: '20%'
 		}
 	};
 	async componentDidMount() {

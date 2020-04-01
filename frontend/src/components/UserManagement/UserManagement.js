@@ -87,6 +87,9 @@ class UserManagement extends React.Component {
 								value={this.state.user.dateOfBirth ? this.state.user.dateOfBirth.substr(0, 10) : ''}
 							/>
 						</Form.Group>
+						<Button type="submit" className="btn btn-success">
+							Save Changes
+						</Button>
 					</Form>
 				</div>
 			</motion.div>
