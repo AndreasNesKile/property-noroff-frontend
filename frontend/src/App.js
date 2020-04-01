@@ -12,6 +12,7 @@ import PropertyDetails from './components/property-details/PropertyDetails';
 import LoadingSpinner from './components/loading-spinner/LoadingSpinner';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import { useAuth0 } from './react-auth0-spa';
+import { AnimatePresence, motion } from 'framer-motion';
 let jwtDecode = require('jwt-decode');
 
 function App() {
@@ -42,15 +43,17 @@ function App() {
 		<Router>
 			<div className="App">
 				<NavigationBar />
-				<Switch>
-					<Route exact path="/properties" component={PropertyCatalogue} />
-					<Route
-						path="/properties/:id"
-						render={(routeProps) => <PropertyDetails role={role} token={token} {...routeProps} />}
-					/>
-					<Route path="/profile" component={UserManagement} />
-					<Route path="/" component={landingpage} />
-				</Switch>
+				<AnimatePresence>
+					<Switch>
+						<Route exact path="/properties" component={PropertyCatalogue} />
+						<Route
+							path="/properties/:id"
+							render={(routeProps) => <PropertyDetails role={role} token={token} {...routeProps} />}
+						/>
+						<Route path="/profile" component={UserManagement} />
+						<Route path="/" component={landingpage} />
+					</Switch>
+				</AnimatePresence>
 			</div>
 		</Router>
 	);

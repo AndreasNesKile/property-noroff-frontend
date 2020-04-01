@@ -7,6 +7,7 @@ import MobileQrCode from './QR-code-component/qr-code-mobile/MobileQrCode';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 import { Modal } from 'react-bootstrap';
 
+import { motion } from 'framer-motion';
 import './PropertyDetail.css';
 import axios from 'axios';
 let QRCode = require('qrcode');
@@ -23,7 +24,16 @@ export default class PropertyDetails extends Component {
 			}
 		}
 	};
-
+	pageTransition = {
+		in: {
+			opacity: 1,
+			x: 0
+		},
+		out: {
+			opacity: 0,
+			x: '40%'
+		}
+	};
 	async componentDidMount() {
 		let Api_Url = `http://localhost:5000/api/properties/${this.props.match.params.id}`;
 		try {
@@ -54,38 +64,40 @@ export default class PropertyDetails extends Component {
 	};
 	render() {
 		return (
-			<div className="container-app">
-				<LoadingSpinner loading={this.state.loading} />
-				<Modal show={this.state.showQrCode} className="text-center modal-size" onHide={this.toggleQr}>
-					<Modal.Header className="d-flex justify-content-around">
-						<Modal.Title>Qr-code for sharing this page</Modal.Title>
-					</Modal.Header>
-					<Modal.Body id="modalbody">
-						<canvas id="canvas"></canvas>
-					</Modal.Body>
-				</Modal>
-				{this.state.property ? <GuestDetails property={this.state.property} /> : ''}
-				{this.props.role === 'Buyer' || this.props.role === 'Agent' ? (
-					this.state.property ? (
-						<BuyerDetails property={this.state.property} />
+			<motion.div initial="out" animate="in" exit="out" variants={this.pageTransition}>
+				<div className="container-app">
+					<LoadingSpinner loading={this.state.loading} />
+					<Modal show={this.state.showQrCode} className="text-center modal-size" onHide={this.toggleQr}>
+						<Modal.Header className="d-flex justify-content-around">
+							<Modal.Title>Qr-code for sharing this page</Modal.Title>
+						</Modal.Header>
+						<Modal.Body id="modalbody">
+							<canvas id="canvas"></canvas>
+						</Modal.Body>
+					</Modal>
+					{this.state.property ? <GuestDetails property={this.state.property} /> : ''}
+					{this.props.role === 'Buyer' || this.props.role === 'Agent' ? (
+						this.state.property ? (
+							<BuyerDetails property={this.state.property} />
+						) : (
+							''
+						)
 					) : (
 						''
-					)
-				) : (
-					''
-				)}
-				{this.props.role === 'Agent' ? (
-					this.state.property ? (
-						<AgentDetails property={this.state.property} />
+					)}
+					{this.props.role === 'Agent' ? (
+						this.state.property ? (
+							<AgentDetails property={this.state.property} />
+						) : (
+							''
+						)
 					) : (
 						''
-					)
-				) : (
-					''
-				)}
-				<QrCode onQrClick={this.ShowQr} />
-				<MobileQrCode onQrClick={this.ShowQr} />
-			</div>
+					)}
+					<QrCode onQrClick={this.ShowQr} />
+					<MobileQrCode onQrClick={this.ShowQr} />
+				</div>
+			</motion.div>
 		);
 	}
 }

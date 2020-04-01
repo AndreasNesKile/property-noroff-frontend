@@ -4,6 +4,7 @@ import Property from '../Property/Property';
 import RecentlyViewed from '../RecentlyViewed/RecentlyViewed';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 //React Bootstrap
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -14,13 +15,21 @@ class PropertyCatalogue extends React.Component {
 		recentproperties: [],
 		anyrecents: false
 	};
-
+	pageTransition = {
+		in: {
+			opacity: 1,
+			x: 0
+		},
+		out: {
+			opacity: 0,
+			x: '-10%'
+		}
+	};
 	async componentDidMount() {
 		let Api_Url = `http://localhost:5000/api/properties`;
 		try {
 			await axios.get(Api_Url).then((res) => {
 				this.setState({ properties: res.data });
-				console.log(this.state.properties);
 			});
 		} catch (e) {
 			console.log(e);
@@ -63,7 +72,13 @@ class PropertyCatalogue extends React.Component {
 		const renderRecentTitle = this.state.anyrecents;
 
 		return (
-			<div className={styles.CatalogueContainer}>
+			<motion.div
+				className={styles.CatalogueContainer}
+				initial="out"
+				animate="in"
+				exit="out"
+				variants={this.pageTransition}
+			>
 				<NavigationBar />
 
 				<div className={styles.RecentlyViewedContainer}>
@@ -78,7 +93,7 @@ class PropertyCatalogue extends React.Component {
 						<div className="Properties">{propertycards}</div>
 					</CardGroup>
 				</div>
-			</div>
+			</motion.div>
 		);
 	}
 }
