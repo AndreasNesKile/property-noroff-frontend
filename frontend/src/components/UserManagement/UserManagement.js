@@ -51,42 +51,44 @@ class UserManagement extends React.Component {
 	}
 	render() {
 		return (
-
 			<motion.div initial="out" animate="in" exit="out" variants={this.pageTransition}>
-			<div className={styles.FormContainer}>
-				<h1>Account details</h1>
-				<Form onSubmit={() => this.saveChanges()}>
-					<Form.Group>
-						<Form.Label>First name</Form.Label>
-						<Form.Control
-							type="text"
-							placeholder="First name"
-							value={this.state.user.name ? this.state.user.name : ''}
-							onChange={(e) => this.UpdateName(e)}
-						/>
-						<Form.Label>Last name</Form.Label>
-						<Form.Control
-							type="text"
-							placeholder="Last name"
-							value={this.state.user.surname ? this.state.user.surname : ''}
-							onChange={(e) => this.UpdateSurname(e)}
-						/>
-						<Form.Label>Email</Form.Label>
-						<Form.Control
-							style={{ color: 'gray' }}
-							type="text"
-							disabled={true}
-							placeholder="Email"
-							value={this.state.user.email ? this.state.user.email : 'No email'}
-						/>
-						<Form.Label>Date of Birth</Form.Label>
-						<Form.Control
-							style={{ color: 'gray' }}
-							type="text"
-							placeholder="Date of birth"
-							disabled={true}
-							value={this.state.user.dateOfBirth ? this.state.user.dateOfBirth.substr(0, 10) : ''}
-						/>
+				<div className={styles.FormContainer}>
+					<h1>Account details</h1>
+					<Form onSubmit={() => this.saveChanges()}>
+						<Form.Group>
+							<Form.Label>First name</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="First name"
+								value={this.state.user.name ? this.state.user.name : ''}
+								onChange={(e) => this.UpdateName(e)}
+							/>
+							<Form.Label>Last name</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Last name"
+								value={this.state.user.surname ? this.state.user.surname : ''}
+								onChange={(e) => this.UpdateSurname(e)}
+							/>
+							<Form.Label>Email</Form.Label>
+							<Form.Control
+								style={{ color: 'gray' }}
+								type="text"
+								disabled={true}
+								placeholder="Email"
+								value={this.state.user.email ? this.state.user.email : 'No email'}
+							/>
+							<Form.Label>Date of Birth</Form.Label>
+							<Form.Control
+								style={{ color: 'gray' }}
+								type="text"
+								placeholder="Date of birth"
+								disabled={true}
+								value={this.state.user.dateOfBirth ? this.state.user.dateOfBirth.substr(0, 10) : ''}
+							/>
+						</Form.Group>
+					</Form>
+				</div>
 			</motion.div>
 		);
 	}
