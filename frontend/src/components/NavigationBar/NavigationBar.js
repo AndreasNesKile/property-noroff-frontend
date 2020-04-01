@@ -17,7 +17,7 @@ const NavigationBar = (props) => {
 	return (
 		<div className={styles.NavContainer}>
 			<Navbar bg="light" fixed="top" className={styles.navbar}>
-				<NavLink to="/properties" className={isCatalogue ? 'disableOnActive' : ''}>
+				<NavLink to="/">
 					<Navbar.Brand>
 						<img width="100" className="d-inline-block align-top" src="/property-navbar.png" alt="logo" />
 					</Navbar.Brand>
