@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 
 export default class LoadingSpinner extends Component {
 	render() {
+		//A Loading component to be shown when wished, its a modal so it will overlay any other component
 		return (
 			<Modal show={this.props.loading} className="modal-size">
 				<Modal.Body id="loading-module" className="d-flex justify-content-around p-0">

@@ -25,6 +25,8 @@ function App() {
 			getToken();
 		}
 	});
+	//this method will get the token and save it in the session storage
+	//Following this protocol, the token will be expired once the session is closed
 	const getToken = async () => {
 		try {
 			let fetchedToken = await getTokenSilently();
@@ -39,6 +41,7 @@ function App() {
 	if (loading) {
 		return <LoadingSpinner />;
 	}
+	//this is where the app will be displayed and routes are defined. the AnimatePresence is for the transition between the routing changes
 	return (
 		<Router>
 			<div className="App">

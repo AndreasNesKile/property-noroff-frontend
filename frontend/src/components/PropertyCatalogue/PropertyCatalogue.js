@@ -15,6 +15,7 @@ class PropertyCatalogue extends React.Component {
 		recentproperties: [],
 		anyrecents: false
 	};
+	//Transition for component
 	pageTransition = {
 		in: {
 			opacity: 1,
@@ -25,6 +26,7 @@ class PropertyCatalogue extends React.Component {
 			x: '-10%'
 		}
 	};
+	//Fetching response from backend and populating state with response
 	async componentDidMount() {
 		let Api_Url = `http://localhost:5000/api/properties`;
 		try {
@@ -36,6 +38,7 @@ class PropertyCatalogue extends React.Component {
 		}
 	}
 
+	//function to set recently viewed in the component
 	SetRecentlyViewed() {
 		if (sessionStorage.getItem('Rview3') != null) {
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview3')]);
@@ -60,6 +63,7 @@ class PropertyCatalogue extends React.Component {
 	}
 
 	render() {
+		//displaying a property for each instance in the array once populated
 		const propertycards = this.state.properties.map((data, index) => {
 			return <Property key={index} index={index} data={data} />;
 		});

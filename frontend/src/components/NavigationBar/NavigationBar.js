@@ -8,7 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 const NavigationBar = (props) => {
 	const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-	const isCatalogue =
+	// A variable to check if we are in the prroperties route
+	let isCatalogue =
 		window.location.href.toLowerCase().endsWith('/properties') ||
 		window.location.href.toLowerCase().endsWith('/properties/')
 			? true
@@ -23,6 +24,7 @@ const NavigationBar = (props) => {
 					</Navbar.Brand>
 				</NavLink>
 				<Nav className="mr-auto">
+					{/* a NavLink thats disabled on the pointer event if the current route is properties */}
 					<NavLink to="/properties" className={isCatalogue ? 'disableOnActive' : ''}>
 						<Nav>
 							<span className={styles.navButton}>Home</span>
@@ -38,6 +40,7 @@ const NavigationBar = (props) => {
 						</Link>
 					</Nav>
 				)}
+				{/* A Button that will show log in/out depending on the bool value of isAuthenticated */}
 				<Nav>
 					<div>
 						{!isAuthenticated && <button onClick={() => loginWithRedirect({})}>Log in</button>}

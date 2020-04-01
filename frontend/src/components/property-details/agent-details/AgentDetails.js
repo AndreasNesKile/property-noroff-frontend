@@ -3,9 +3,11 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './AgentDetails.css';
 
 export default class AgentDetails extends Component {
+	//Appends timeline objects on mount
 	componentDidMount() {
 		this.appendTimeLineObjects();
 	}
+	//the function to append the correct css and html for each of the timeline objects
 	appendTimeLineObjects() {
 		this.props.property.renovations.forEach((ren, index) => {
 			let renovation, renHeading, renTime;
@@ -27,6 +29,8 @@ export default class AgentDetails extends Component {
 	}
 
 	render() {
+		//the details that is shown when the role you are logged in as is defined as agent
+		//every output is checked for data first and if its not found there will be a default display
 		return (
 			<section className="text-center mt-2 agent-details">
 				<Container className="mt-5">

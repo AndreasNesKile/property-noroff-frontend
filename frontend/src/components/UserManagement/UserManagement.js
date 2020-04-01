@@ -6,6 +6,8 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 let Api_Url = `http://localhost:5000/api/account/1`;
 class UserManagement extends React.Component {
+	//the headers in the config used to fetch a respons from the backend will be pulled out from the session once it is available, and
+	//then the token will be used to identify the userr that wants to change their info on the backend
 	state = {
 		user: {},
 		config: {
@@ -27,23 +29,25 @@ class UserManagement extends React.Component {
 		try {
 			await axios.get(Api_Url, this.state.config ? this.state.config : '').then((res) => {
 				this.setState({ user: res.data });
-				console.log(this.state.user);
 			});
 		} catch (e) {
 			console.log(e);
 		}
 	}
 
+	//once the form is submitted it will call this function that will send a put request with the token to the backend
 	saveChanges() {
 		axios.put(Api_Url, this.state.user, this.state.config).then((res) => {
 			console.log(res);
 		});
 	}
+	//Two-way binding on the  template for the user name
 	UpdateName(e) {
 		let newSelected = Object.assign({}, this.state.user);
 		newSelected.name = e.target.value;
 		this.setState({ user: newSelected });
 	}
+	//Two-way binding on the  template for the user surname
 	UpdateSurname(e) {
 		let newSelected = Object.assign({}, this.state.user);
 		newSelected.surname = e.target.value;

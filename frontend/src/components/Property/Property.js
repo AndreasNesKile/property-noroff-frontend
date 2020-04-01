@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 //React Bootstrap
 import Card from 'react-bootstrap/Card';
 
+//The layout for each card that is displayed in the property catalogue
 function Property(props) {
 	function handleClick() {
 		if (sessionStorage.getItem('Rview1') === null) {

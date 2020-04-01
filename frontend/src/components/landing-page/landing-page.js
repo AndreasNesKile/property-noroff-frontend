@@ -5,9 +5,7 @@ import './landingpage.css';
 import { motion } from 'framer-motion';
 
 export default class landingpage extends Component {
-	state = {
-		role: null
-	};
+	// Transition for component
 	pageTransition = {
 		in: {
 			opacity: 1
