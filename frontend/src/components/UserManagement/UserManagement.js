@@ -64,6 +64,7 @@ class UserManagement extends React.Component {
 							<Form.Control
 								type="text"
 								placeholder="First name"
+								pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$"
 								value={this.state.user.name ? this.state.user.name : ''}
 								onChange={(e) => this.UpdateName(e)}
 							/>
@@ -71,6 +72,7 @@ class UserManagement extends React.Component {
 							<Form.Control
 								type="text"
 								placeholder="Last name"
+								pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$"
 								value={this.state.user.surname ? this.state.user.surname : ''}
 								onChange={(e) => this.UpdateSurname(e)}
 							/>
