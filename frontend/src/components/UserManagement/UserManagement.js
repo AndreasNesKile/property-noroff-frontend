@@ -3,7 +3,7 @@ import styles from './UserManagement.module.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-let Api_Url = `http://localhost:5000/api/account/1`;
+let Api_Url = `https://propertyproject.azurewebsites.net/api/account/1`;
 class UserManagement extends React.Component {
 	state = {
 		user: {},
