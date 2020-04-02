@@ -4,11 +4,7 @@ import './GuestDetails.css';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 export default class GuestDetails extends Component {
-	state = {
-		position: [51.505, -0.09],
-		showQrCode: false
-	};
-
+	//The display in the detailscomponent that always will be shown
 	render() {
 		return (
 			<section className="guest-details text-center  pb-5">

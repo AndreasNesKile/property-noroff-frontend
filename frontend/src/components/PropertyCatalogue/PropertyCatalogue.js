@@ -4,6 +4,7 @@ import Property from '../Property/Property';
 import RecentlyViewed from '../RecentlyViewed/RecentlyViewed';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 //React Bootstrap
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -14,7 +15,18 @@ class PropertyCatalogue extends React.Component {
 		recentproperties: [],
 		anyrecents: false
 	};
-
+	//Transition for component
+	pageTransition = {
+		in: {
+			opacity: 1,
+			x: 0
+		},
+		out: {
+			opacity: 0,
+			x: '-10%'
+		}
+	};
+	//Fetching response from backend and populating state with response
 	async componentDidMount() {
 		let Api_Url = `https://propertyproject.azurewebsites.net/api/properties`;
 		try {
@@ -26,6 +38,7 @@ class PropertyCatalogue extends React.Component {
 		}
 	}
 
+	//function to set recently viewed in the component
 	SetRecentlyViewed() {
 		if (sessionStorage.getItem('Rview3') != null) {
 			this.state.recentproperties.push(this.state.properties[sessionStorage.getItem('Rview3')]);
@@ -50,6 +63,7 @@ class PropertyCatalogue extends React.Component {
 	}
 
 	render() {
+		//displaying a property for each instance in the array once populated
 		const propertycards = this.state.properties.map((data, index) => {
 			return <Property key={index} index={index} data={data} />;
 		});
@@ -62,7 +76,13 @@ class PropertyCatalogue extends React.Component {
 		const renderRecentTitle = this.state.anyrecents;
 
 		return (
-			<div className={styles.CatalogueContainer}>
+			<motion.div
+				className={styles.CatalogueContainer}
+				initial="out"
+				animate="in"
+				exit="out"
+				variants={this.pageTransition}
+			>
 				<NavigationBar />
 
 				<div className={styles.RecentlyViewedContainer}>
@@ -77,7 +97,7 @@ class PropertyCatalogue extends React.Component {
 						<div className="Properties">{propertycards}</div>
 					</CardGroup>
 				</div>
-			</div>
+			</motion.div>
 		);
 	}
 }

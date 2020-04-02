@@ -3,6 +3,8 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './BuyerDetails.css';
 export default class BuyerDetails extends Component {
 	render() {
+		//the details that is shown when the role you are logged in as is defined as buyer
+		//every output is checked for data first and if its not found there will be a default display
 		return (
 			<section className="buyer-section pt-3" id="buyer-section">
 				<Container>
