@@ -54,6 +54,12 @@ $ NODE_ENV=production node app
 
 ### Azure
 
+The backend is deployed to azure and can accessed via this link: 
+
+https://propertyproject.azurewebsites.net/api/properties 
+
+Depending on the date and time, this link may no longer be working. 
+
 ## Docker
 
 Instructions on how to run the application in a docker container
