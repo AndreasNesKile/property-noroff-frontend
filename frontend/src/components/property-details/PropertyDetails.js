@@ -36,6 +36,7 @@ export default class PropertyDetails extends Component {
 	};
 	async componentDidMount() {
 		let Api_Url = `${process.env.REACT_APP_API_URL}/${this.props.match.params.id}`;
+
 		try {
 			await axios.get(Api_Url, this.state.config ? this.state.config : '').then((res) => {
 				this.setState({ property: res.data });

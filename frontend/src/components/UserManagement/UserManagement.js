@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-let Api_Url = `http://localhost:5000/api/account/1`;
+let Api_Url = `https://propertyproject.azurewebsites.net/api/account/1`;
 class UserManagement extends React.Component {
 	//the headers in the config used to fetch a respons from the backend will be pulled out from the session once it is available, and
 	//then the token will be used to identify the userr that wants to change their info on the backend

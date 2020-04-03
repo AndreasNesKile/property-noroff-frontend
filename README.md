@@ -53,3 +53,20 @@ $ NODE_ENV=production node app
 ```
 
 ### Azure
+
+## Docker
+
+Instructions on how to run the application in a docker container
+
+### Frontend
+
+Instructions on how to run the frontend in a docker container.  
+First install docker on your computer, then open powershell and navigate to the frontend folder ...\property-noroff-project\frontend.  
+Type in the following:  
+
+```sh
+$ docker build -t reactapp .
+$ docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm reactapp
+```
+This process may take some time. After it is done, the frontend is now running from a docker container at port 3001.  
+Go to http://localhost:3001 to visit the page.
