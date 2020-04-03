@@ -1,0 +1,7 @@
+.qr-code {
+	position: fixed;
+	border-radius: 80%;
+	right: 1%;
+	top: 20%;
+	z-index: 5000000;
+}

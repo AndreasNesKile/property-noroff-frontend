@@ -1,0 +1,14 @@
+.qr-code-mobile {
+	font-style: 2rem;
+	font-weight: 600;
+	color: #fff;
+	background-color: #26c6da;
+	height: 6vh;
+	width: 100vw;
+}
+.qr-code-mobile:hover {
+	background-color: #00acc1;
+	cursor: pointer;
+	transform: scaleY(1.2);
+	z-index: -1;
+}

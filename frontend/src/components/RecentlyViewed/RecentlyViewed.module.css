@@ -1,0 +1,15 @@
+.CardContainer {
+    max-width: 10vw;
+    min-width: 95px;
+    float:left;
+    transition: 0.2s;
+    background-color: #00838F;
+    margin-right: 1vw;
+}
+
+.CardContainer:hover {
+    padding: 1.5px;
+    background-color: #80DEEA;
+    border-left: 2px solid #80DEEA;
+    border-right: 2px solid #80DEEA;
+}
