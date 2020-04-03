@@ -28,7 +28,7 @@ class PropertyCatalogue extends React.Component {
 	};
 	//Fetching response from backend and populating state with response
 	async componentDidMount() {
-		let Api_Url = `https://propertyproject.azurewebsites.net/api/properties`;
+		let Api_Url = `${process.env.REACT_APP_API_URL}`;
 		try {
 			await axios.get(Api_Url).then((res) => {
 				this.setState({ properties: res.data });
